@@ -1,24 +1,30 @@
-# README
+# SHARE WITH
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+自身の興味があるジャンルを企画、もしくは参画し、オンラインでの交流を目的とするサイト
 
-Things you may want to cover:
+### サイトテーマ
+オンラインで繋がりを持ちませんか？「SHARE WITH」は出会いの手助けをします！
 
-* Ruby version
+### テーマを選んだ理由
+コロナウイルスの影響でオンラインでの交流や会議が定着しました。職場はもちろんのこと、日常生活においても「オンライン」は今後も重要な鍵となってくると考えています。
+しかし、一括でジャンルごとにまとめてあり、オンライン交流を促せるサイトはまだまだ少ないです。その分競合優位性に長けるサイトが作れるのではないかと考えました。
+もっと興味のある分野に対しユーザーが手軽に交流を図り、知見と人脈を広げて欲しいとの思いからテーマを選びました。
 
-* System dependencies
+### ターゲットユーザ
+興味のある分野に対し交流を深め、時間を共有したい人
 
-* Configuration
+### 主な利用シーン
+ZOOMを用いて主に交流
 
-* Database creation
+## 設計書
 
-* Database initialization
+### 機能一覧
+https://docs.google.com/spreadsheets/d/1fkFtpdsKGlnc3HYEvBY7tswyZHkvkfSXBTgURBNc6Fg/edit?usp=sharing
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- 仮想環境：Vagrant,VirtualBox
