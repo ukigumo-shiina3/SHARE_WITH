@@ -20,7 +20,7 @@ ZOOMを用いて主に交流
 ## 設計書
 
 ### 機能一覧
-https://docs.google.com/spreadsheets/d/1fkFtpdsKGlnc3HYEvBY7tswyZHkvkfSXBTgURBNc6Fg/edit?usp=sharing
+https://docs.google.com/spreadsheets/d/1XzVwotOfy9fW7O2e2FiZW3bRAsxIthjeY_sj-DWoJfM/edit?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
