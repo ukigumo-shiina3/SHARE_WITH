@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get 'home/howto'
 
   resources :users, only: [:index, :edit, :show, :update,:destroy] 
-
   resources :events, except: [:new] do
     resource :favorites, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]

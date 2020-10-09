@@ -9,4 +9,6 @@ class User < ApplicationRecord
   has_many :favorites,  dependent: :destroy
   has_many :message, dependent: :destroy
   has_many :entry,  dependent: :destroy
+
+  attachment :avator_image
 end
