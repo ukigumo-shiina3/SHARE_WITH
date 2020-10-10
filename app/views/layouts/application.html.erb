@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SHAREWith</title>
+    <title>SHARE WITH</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,7 +9,76 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <nav class="nav navbar-nav navbar-left">
+        <%= link_to root_path do %>
+          <h1>SHARE WITH</h1>
+          <% end %>
+      </nav>
+
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+          <li>
+            <span>
+              ようこそ、<%= current_user.name %>さん！
+            </span>
+          <li>
+              <%= link_to "About", home_about_path %>
+          </li>
+          <li>
+              <%= link_to "Howto", home_howto_path %>
+          </li>
+          <li>
+              <%= link_to "イベント一覧", events_path %>
+          </li>
+          <li>
+              <%= link_to "ジャンル一覧", genres_path %>
+          </li>
+          <li>
+              <%= link_to "イベント投稿", new_event_path%>
+          </li>
+          <li>
+              <%= link_to "マイページ"%>
+          </li>
+          <li>
+              <%= link_to "ログアウト", destroy_user_session_path %>
+          </li>
+          <% else %>
+          <li>
+              <%= link_to "About", home_about_path %>
+          </li>
+          <li>
+              <%= link_to "Howto", home_howto_path %>
+          </li>
+          <li>
+              <%= link_to "イベント一覧", events_path %>
+          </li>
+          <li>
+              <%= link_to "ジャンル一覧", genres_path %>
+          </li>
+          <li>
+              <%= link_to "新規登録", new_user_registration_path %>
+          </li>
+          <li>
+              <%= link_to "ログイン", new_user_session_path %>
+          </li>
+          <li>
+              <%= link_to "簡単ログイン", events_guest_sign_in_path, method: :post %>
+          </li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </header>  
+
+  <%= yield %>
+
+
+  <footer>
+    <p class="copyright">CopyRight © 2020-20XX SHARE WITH CORPORATION.</p> 
+  </footer>
+</body>
 </html>
