@@ -1,2 +1,46 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="container">
+	<div class="row">
+            <h2><%= @user.name %>さんのユーザー詳細</h2>
+
+            <!-- エラー文 -->
+		<% if @user.errors.any? %>
+            <h2><%= @user.errors.count %>件のエラーが発生しました。</h2>
+            <ul>
+                <% @user.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        <% end %>
+        <!-- エラー文 -->
+
+        <%= form_for(@user, url:"/users/#{@user.id}") do |f| %>
+            <!--プロフィール写真 -->
+            <div class="row form-interval">
+				<label class="col-lg-2">プロフィール写真</label>
+				<div  class="col-lg-10">
+					<%= @user.avator_image %>
+				</div>
+			</div>
+
+            <!-- ユーザー名フォーム -->
+			<div class="row form-interval">
+                <label class="col-lg-2">ユーザー名</label>
+                <div class="col-lg-2">
+                    <%= f.text_field :name %>
+                </div>
+            </div>
+            <!-- ユーザー名フォーム -->
+
+            <div class="row form-interval">
+                <label class="col-lg-2">メールアドレス</label>
+                <div class="col-lg-3">
+                    <%= f.email_field :email %>
+                </div>
+            </div>
+
+            <div class="row form-interval">
+                <%= f.submit "変更を保存", class:"btn btn-primary" %>
+            </div>
+		<% end %>
+	</div>
+</div>
