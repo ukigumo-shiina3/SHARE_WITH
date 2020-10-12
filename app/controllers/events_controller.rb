@@ -8,7 +8,7 @@ class EventsController < ApplicationController
     @event.user_id = current_user.id 
     if @event.save
       flash[:notice] = "イベントを作成しました。"
-      redirect_to events_path(@event)
+      redirect_to events_path
     else
       render 'new'
     end
@@ -16,11 +16,15 @@ class EventsController < ApplicationController
 
   def index
     # @events = @genre.events.all
-    @events = Event.all
+    @events = Event.page(params[:page]).per(7)
+    @event = Event.new
   end
 
   def show
-    @event = Event.find(params[:id])
+    @event = Event.find(params[:id]) 
+    @comments = @event.comments  
+    @user = @event.user 
+    @comment = Comment.new
   end
 
   def edit
@@ -50,7 +54,6 @@ class EventsController < ApplicationController
   def new_guest
     user = User.find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
-      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
     end
     sign_in user
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
