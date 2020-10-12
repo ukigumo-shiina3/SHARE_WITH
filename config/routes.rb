@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'events#index'  
-  get 'home/about'
-  get 'home/howto'
+  get 'home/about', to: 'homes#about'
+  get 'home/howto', to: 'homes#howto'
   post '/events/guest_sign_in', to: 'events#new_guest'
 
   resources :users, only: [:index, :edit, :show, :update,:destroy] 
