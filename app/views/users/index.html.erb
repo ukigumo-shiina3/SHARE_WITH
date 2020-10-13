@@ -2,7 +2,7 @@
 	<div class="row">
 		<h2>ユーザー一覧</h2>
 
-		<div class="col-xs-8 col-xs-offset-2">
+		<div class="col-xs-7 ">
 			<table class="table table-hover table-inverse">
 
 				<thead>
@@ -17,7 +17,7 @@
 					<% @users.each do |user| %>
 						<tr>
                             <td><%= link_to user_path(user) do %>
-									<%= attachment_image_tag user, :avator_image, :fill, 150, 150, format: 'jpeg' %>
+									<%= attachment_image_tag user, :avator_image, fallback: "noimage.png", size:"100x100" %>
 								<% end %>
                             </td>
 							<td>
@@ -31,5 +31,21 @@
 				</tbody>
 			</table>
         </div>
+	
+	
+		<div class="col-xs-3">
+			<div class="row event_ranking">
+				<div class="ranking-title"><strong>人気投稿ランキング</strong></div>
+					<ul class="list_crown">
+					<% @all_ranks.each.with_index(1) do |rank, i| %>
+					<li>
+						<%= link_to event_path(rank) do %>
+							第<%= i %>位<br>
+							<%= rank.title %>
+						<% end %>
+					</li>
+				<% end %>
+			</div>   
+		</div>
 	</div>
 </div>

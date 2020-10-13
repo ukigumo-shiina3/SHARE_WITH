@@ -11,7 +11,10 @@
 									<%= attachment_image_tag event, :image, :fill, 500, 400, format: 'jpeg' %>
 								<% end %>
 								<div class="row"><a href ="/events/<%= event.id %>"><%= event.title %></a></div>
-                                <div class="row"><%= event.body%></div>
+                                <div class="row"><%= event.event_date %></div>
+                                <p><%= event.event_hour %><%= event.event_minute %></p>
+                                <div class="row"><%= event.body %></div>
+                                <div class="row"><%= event.recruitment %></div>
                             <div class="row">
                                     <% if event.favorited_by?(current_user) %>
                                         <%= link_to event_favorites_path(event), method: :delete do %>
@@ -24,7 +27,7 @@
                                         <%= event.favorites.count %>
                                         <% end %>
                                 </div>
-                                <% end %>
+                                    <% end %>
                                 <p>
                                     コメント数：
                                         <%= event.comments.count %>
@@ -36,10 +39,20 @@
             <%= paginate @events %>
             
             <!-- ランキング -->
-            <div class="col-md-3">
-                <div class="row ranking">
-                    <h4 class="mt-5">おすすめイベント</h4>
-                </div>
+            <div class="col-xs-3">
+                <div class="row event_ranking">
+                    <div class="ranking-title"><strong>人気投稿ランキング</strong></div>
+                        <ul class="list_crown">
+                        <% @all_ranks.each.with_index(1) do |rank, i| %>
+                        <li>
+                            <%= link_to event_path(rank) do %>
+                                第<%= i %>位<br>
+                                <%= rank.title %>
+                            <% end %>
+                        </li>
+                    <% end %>
+                </div>   
+            </div>
             <!-- カレンダー -->
                 <div class="row calender">
                     <h4 class="mt-5">マイカレンダー</h4>

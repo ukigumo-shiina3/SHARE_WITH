@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def index
     @user= current_user
     @users = User.all
+    @all_ranks = Event.create_all_ranks
   end
 
   def show

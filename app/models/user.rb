@@ -11,4 +11,8 @@ class User < ApplicationRecord
   has_many :entry,  dependent: :destroy
 
   attachment :avator_image
+
+  def self.create_all_ranks 
+    Event.find(Favorite.group(:event_id).order('count(event_id) desc').limit(3).pluck(:event_id))
+  end
 end

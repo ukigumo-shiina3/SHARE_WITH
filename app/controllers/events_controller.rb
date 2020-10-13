@@ -5,6 +5,8 @@ class EventsController < ApplicationController
   
   def create
     @event = Event.new(event_params)
+    post_date = params["event"]["event_date(1i)"] << "-" << params["event"]["event_date(2i)"] << "-" << params["event"]["event_date(3i)"]
+    @event.event_date = post_date.to_date
     @event.user_id = current_user.id 
     if @event.save
       flash[:notice] = "イベントを作成しました。"
@@ -18,6 +20,7 @@ class EventsController < ApplicationController
     # @events = @genre.events.all
     @events = Event.page(params[:page]).per(7)
     @event = Event.new
+    @all_ranks = Event.create_all_ranks
   end
 
   def show
@@ -61,6 +64,6 @@ class EventsController < ApplicationController
 
   private
     def event_params
-      params.require(:event).permit(:user_id, :genre_id, :title, :body, :image)
+      params.require(:event).permit(:user_id, :genre_id, :title, :body, :image, :event_hour, :event_minute, :recruitment)
     end
 end
