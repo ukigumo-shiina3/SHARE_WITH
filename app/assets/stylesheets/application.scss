@@ -39,7 +39,7 @@ body {
 }
 
 footer {
-    position: absolute;
+    position: sticky;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -52,4 +52,22 @@ footer {
 
 .copyright {
     color: #337ab7;
+}
+
+.pagination>li>a {          
+    border: none;   
+    color: #696969;   
+}
+
+.pagination>.active>a {     
+    background: #93c9ff;     
+    border-radius: 15px;    
+}
+
+.pagination>li>a:hover {        
+border-radius: 15px;    
+}
+
+.search-form {
+    float: right;
 }

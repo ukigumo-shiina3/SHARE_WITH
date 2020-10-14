@@ -5,8 +5,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.min.css">
   </head>
 
 <body>
@@ -26,27 +30,30 @@
               ようこそ、<%= current_user.name %>さん！
             </span>
           <li>
+              <%= link_to "Home", events_path %>
+          </li>
+          <li>
               <%= link_to "About", home_about_path %>
           </li>
           <li>
               <%= link_to "Howto", home_howto_path %>
           </li>
           <li>
-              <%= link_to "イベント一覧", events_path %>
+              <%= link_to "ユーザ一覧", users_path %>
           </li>
           <li>
-              <%= link_to "ジャンル一覧", genres_path %>
+              <%= link_to "マイページ", user_path(current_user) %>
           </li>
           <li>
               <%= link_to "イベント投稿", new_event_path%>
           </li>
           <li>
-              <%= link_to "マイページ"%>
-          </li>
-          <li>
-              <%= link_to "ログアウト", destroy_user_session_path %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
           </li>
           <% else %>
+          <li>
+              <%= link_to "Home", events_path %>
+          </li>
           <li>
               <%= link_to "About", home_about_path %>
           </li>
@@ -54,10 +61,7 @@
               <%= link_to "Howto", home_howto_path %>
           </li>
           <li>
-              <%= link_to "イベント一覧", events_path %>
-          </li>
-          <li>
-              <%= link_to "ジャンル一覧", genres_path %>
+              <%= link_to "ユーザ一覧", users_path %>
           </li>
           <li>
               <%= link_to "新規登録", new_user_registration_path %>
@@ -73,6 +77,17 @@
       </nav>
     </div>
   </header>  
+
+  <% if user_signed_in? %>
+    <div class="search-form">
+      <%= form_tag(search_path, method: :get) do %>
+        <%= text_field_tag 'search[content]' %>
+        <%= select_tag 'search[model]', options_for_select({ "User" => "user", "Event" => "event" }) %>
+        <%= select_tag 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }) %>
+        <%= submit_tag '検索', class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  <% end %>
 
   <%= yield %>
 
