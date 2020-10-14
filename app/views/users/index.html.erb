@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
+	<!-- ユーザー一覧 -->
 		<h2>ユーザー一覧</h2>
-
 		<div class="col-xs-7 ">
 			<table class="table table-hover table-inverse">
 
@@ -32,8 +32,8 @@
 			</table>
         </div>
 	
-	
-		<div class="col-xs-3">
+	<!-- ランキング -->
+		<div class="col-xs-2">
 			<div class="row event_ranking">
 				<div class="ranking-title"><strong>人気投稿ランキング</strong></div>
 					<ul class="list_crown">
@@ -45,6 +45,25 @@
 						<% end %>
 					</li>
 				<% end %>
+			</div>   
+		</div>
+
+		<!-- DM -->
+		<div class="col-xs-2">
+			<div class="row">
+			<h1>DMユーザー一覧</h1>
+			<% if user_signed_in? %>
+			<h2>Hello <%= current_user.name %></h2>
+				<% @users.each do |u| %>
+				<p><a href="/users/<%= u.id %>"><%= u.name %>さん</a></p>
+				<hr>
+				<% end %>
+				<%= link_to "ログアウト", destroy_user_session_path, :method => :delete %>
+			<% else %>
+				<%= link_to "ユーザーを登録する", new_user_registration_path %>
+				<br>
+				<%= link_to "ログインする", new_user_session_path %>
+			<% end %>
 			</div>   
 		</div>
 	</div>

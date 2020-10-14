@@ -1,12 +1,12 @@
 <div class="container">
 	<div class="row">
-            <h2><%= @user.name %>さんのユーザー詳細</h2>
+            <h2><%= @user.name %>さんのマイページ</h2>
 		<p id="notice"><%= notice %></p>
 		<table>
 			<tbody>
                 <tr>
 					<td class="users_interval">プロフィール写真</td>
-                    <td class="users_interval"><%= @user.avator_image %></td>
+                    <td class="users_interval"><%= attachment_image_tag @user, :avator_image, fallback: "noimage.png", size:"400x300" %><%#= @user.avator_image %></td>
                 <tr>
 				<tr>
 					<td class="users_interval">ユーザー名</td>
@@ -18,6 +18,120 @@
                 <tr>
             </tbody>
 		</table>
+
+        <h3 class="text-center">カレンダー</h3>
+        <!-- カレンダーの表示 -->
+        <div id="calendar"></div>
+        <!-- もしユーザーがログインしていたら -->
+        <% if user_signed_in? %>
+            <!-- ページのparams.idがログインユーザー.idと同じなら -->
+            <% if @user.id == current_user.id %>
+                <div id="inputScheduleForm" class="modal fade" tabindex="-1">
+                    <div class="modal-dialog modal-nm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">スケジュール登録</h4>
+                            </div>
+                            <div class="modal-body">
+                                <%= form_with model: @schedule, url: events_path do |f| %>
+                                    <div  class="col">
+                                            <p>
+                                                <span>タイトル</span>
+                                                <span><%= f.text_field :title, class: "form-control", placeholder: "タイトルを入力してください" %></span>
+                                            </p>
+                                            <span>開始日時</span>
+                                            <span><%= f.datetime_field  :start, placeholder: "XXXX-XX-XX", class:"field" %> ~ </span><br>
+                                            <span>終了日時</span>
+                                            <span><%= f.datetime_field :end, placeholder: "XXXX-XX-XX", class:"field" %></span><br>
+                                            <span>詳細
+                                            <%= f.text_field :body, class: "form-control", placeholder: "タイトルの詳細を記入してください" %></span>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <%= f.submit "登録する", class: "btn btn-primary" %>
+                                        <%= f.hidden_field :user_id, :value => current_user.id %>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                                    </div>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        <!-- 編集 ------------------------------------------------------------------>
+                <div id="inputEditForm">
+                    <%= render 'schedules/edit', schedules: @schedules %>
+                </div>
+            <% end %>
+        <% end %>
+            <script>
+            // CRUDを行う際にCSRF対策のtokenを発行
+                $(document).ready(function() {
+                var prepare = function(options, originalOptions, jqXHR) {
+                var token;
+                if (!options.crossDomain) {
+                    token = $('meta[name="csrf-token"]').attr('content');
+                    if (token) {
+                    return jqXHR.setRequestHeader('X-CSRF-Token', token);
+                    }
+                }
+                };
+                }
+                )
+
+                // カレンダー表示
+                $('#calendar').fullCalendar ({
+                    header: {
+                        left: 'prev,next today',
+                        center: 'month,agendaWeek,agendaDay',
+                        right: 'title'
+                    },
+
+                    buttonText: {
+                        prev: "<",
+                        next: ">"
+                    },
+
+                    timezone: 'UTC',
+                    events: '/users/events.json',
+                    navLinks: true,
+                    selectable: true,
+                    selectHelper: true,
+                    // 日付クリック
+                    dayClick : function ( date , jsEvent , view ) {
+                        $('#inputScheduleForm').modal('show');
+                        },
+
+                    // event クリックで編集、削除
+                    eventClick : function(event, jsEvent , view) {
+                        jsEvent.preventDefault();
+                        $(`#inputScheduleEditForm${event.id}`).modal('show');
+                    },
+
+                    eventMouseover : function(event, jsEvent , view) {
+                        jsEvent.preventDefault();
+                    }
+                })
+
+            </script>
+
+        <h1>ユーザーとチャット</h1>
+
+        <h2><%= @user.name %></h2>
+
+        <% if @user.id == current_user.id %>
+
+        <% else %>
+            <% if @isRoom == true %>
+                <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
+            <% else %>
+                <%= form_for @room do |f| %>
+                    <%= fields_for @entry do |e| %>
+                        <%= e.hidden_field :user_id, :value=> @user.id %>
+                    <% end %>
+                    <%= f.submit "チャットを始める" %>
+                <% end %>
+            <% end %>
+        <% end %>
+
         <%= link_to "編集する" ,edit_user_path(@user), class: "btn btn-primary admin_customers_link" %>
         <%= link_to '削除する', user_path(@user.id), method: :delete, "data-confirm" =>"本当に削除しますか？", class: "btn btn-danger"%>
     </div>

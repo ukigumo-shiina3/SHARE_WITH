@@ -7,8 +7,9 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites,  dependent: :destroy
-  has_many :message, dependent: :destroy
-  has_many :entry,  dependent: :destroy
+  has_many :messages, dependent: :destroy
+  has_many :entries,  dependent: :destroy
+  has_many :schedules, dependent: :destroy
 
   attachment :avator_image
 
