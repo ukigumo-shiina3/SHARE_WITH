@@ -1,3 +1,10 @@
+
+        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css">
+        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.print.css" media='print'>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+
 <div class="container">
 	<div class="row">
             <h2><%= @user.name %>さんのマイページ</h2>
@@ -84,17 +91,16 @@
                         center: 'month,agendaWeek,agendaDay',
                         right: 'title'
                     },
-
                     buttonText: {
                         prev: "<",
                         next: ">"
                     },
-
-                    timezone: 'UTC',
+                    timezone: 'JST', //日本の標準時
                     events: '/events.json',
                     navLinks: true,
                     selectable: true,
                     selectHelper: true,
+                    defaultView: 'agendaWeek',
                     // 日付クリック
                     dayClick : function ( date , jsEvent , view ) {
                         $('#inputScheduleForm').modal('show');
