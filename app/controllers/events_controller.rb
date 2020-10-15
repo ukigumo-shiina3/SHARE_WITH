@@ -5,22 +5,24 @@ class EventsController < ApplicationController
   
   def create
     @event = Event.new(event_params)
+    @event.user_id = current_user.id 
     post_date = params["event"]["event_date(1i)"] << "-" << params["event"]["event_date(2i)"] << "-" << params["event"]["event_date(3i)"]
     @event.event_date = post_date.to_date
-    @event.user_id = current_user.id 
     if @event.save
       flash[:notice] = "イベントを作成しました。"
       redirect_to events_path
     else
       render 'new'
     end
+    @events = Event.where(user_id: current_user.id)
   end
 
   def index
     # @events = @genre.events.all
-    @events = Event.page(params[:page]).per(7)
+    @events = Event.all.page(params[:page]).per(7)
     @event = Event.new
     @all_ranks = Event.create_all_ranks
+    @schedules = Schedule.where(user_id: current_user.id) #JSON形式
   end
 
   def show
@@ -48,6 +50,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:id])
     @event = Event.find(params[:id])
         @event.destroy
         flash[:notice] = "イベントを削除しました。"

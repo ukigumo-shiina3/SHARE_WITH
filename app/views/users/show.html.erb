@@ -19,44 +19,44 @@
             </tbody>
 		</table>
 
-        <h3 class="text-center">カレンダー</h3>
+
         <!-- カレンダーの表示 -->
-        <div id="calendar"></div>
-        <!-- もしユーザーがログインしていたら -->
-        <% if user_signed_in? %>
-            <!-- ページのparams.idがログインユーザー.idと同じなら -->
-            <% if @user.id == current_user.id %>
-                <div id="inputScheduleForm" class="modal fade" tabindex="-1">
-                    <div class="modal-dialog modal-nm">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">スケジュール登録</h4>
-                            </div>
-                            <div class="modal-body">
-                                <%= form_with model: @schedule, url: events_path do |f| %>
-                                    <div  class="col">
-                                            <p>
-                                                <span>タイトル</span>
-                                                <span><%= f.text_field :title, class: "form-control", placeholder: "タイトルを入力してください" %></span>
-                                            </p>
-                                            <span>開始日時</span>
-                                            <span><%= f.datetime_field  :start, placeholder: "XXXX-XX-XX", class:"field" %> ~ </span><br>
-                                            <span>終了日時</span>
-                                            <span><%= f.datetime_field :end, placeholder: "XXXX-XX-XX", class:"field" %></span><br>
-                                            <span>詳細
-                                            <%= f.text_field :body, class: "form-control", placeholder: "タイトルの詳細を記入してください" %></span>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <%= f.submit "登録する", class: "btn btn-primary" %>
-                                        <%= f.hidden_field :user_id, :value => current_user.id %>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-                                    </div>
-                                <% end %>
+        <h3 class="text-center">マイカレンダー</h3>
+        <div id="calendar">
+            <% if user_signed_in? %>
+                <% if @user.id == current_user.id %>
+                    <div id="inputScheduleForm" class="modal fade" tabindex="-1">
+                        <div class="modal-dialog modal-nm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">スケジュール登録</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <%= form_with model: @schedule do |f| %>
+                                        <div class="col">
+                                                <p>
+                                                    <span>タイトル</span>
+                                                    <span><%= f.text_field :title, class: "form-control", placeholder: "タイトルを入力してください" %></span>
+                                                </p>
+                                                <span>開始日時</span>
+                                                <span><%= f.datetime_field  :start, placeholder: "XXXX-XX-XX", class:"field" %> ~ </span><br>
+                                                <span>終了日時</span>
+                                                <span><%= f.datetime_field :end, placeholder: "XXXX-XX-XX", class:"field" %></span><br>
+                                                <span>詳細
+                                                <%= f.text_field :body, class: "form-control", placeholder: "タイトルの詳細を記入してください" %></span>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <%= f.submit "登録する", class: "btn btn-primary" %>
+                                            <%= f.hidden_field :user_id, :value => current_user.id %>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                                        </div>
+                                    <% end %>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-        <!-- 編集 ------------------------------------------------------------------>
+        </div>    
+        <!-- 編集 -->
                 <div id="inputEditForm">
                     <%= render 'schedules/edit', schedules: @schedules %>
                 </div>
@@ -91,7 +91,7 @@
                     },
 
                     timezone: 'UTC',
-                    events: '/users/events.json',
+                    events: '/events.json',
                     navLinks: true,
                     selectable: true,
                     selectHelper: true,
@@ -132,6 +132,7 @@
             <% end %>
         <% end %>
 
+        <!-- 編集、削除ボタン -->
         <%= link_to "編集する" ,edit_user_path(@user), class: "btn btn-primary admin_customers_link" %>
         <%= link_to '削除する', user_path(@user.id), method: :delete, "data-confirm" =>"本当に削除しますか？", class: "btn btn-danger"%>
     </div>
