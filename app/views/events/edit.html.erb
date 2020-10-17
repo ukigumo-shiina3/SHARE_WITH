@@ -4,20 +4,20 @@
             <%= form_with model:@event, url: event_path,method: :patch do |f| %>
                 <div class="col-lg-5"class="col-lg-5">
                     <div class="event-image">
-                        <%= attachment_image_tag @event, :image, fallback: "noimage.png", size:"300x200" %>
+                        <%= attachment_image_tag @event, :image, fallback: "noimage.png", size:"400x300" %>
                     </div>
                     <%= f.attachment_field :image %>
                 </div>
                 <div class="col-lg-3">
-                    <div class="row">
+                    <div class="row evewnt_name">
                         <%= f.label :イベント名 %>
                         <%= f.text_field :title %>
                     </div>
-                    <div class="row">
-                        <%= f.label :イベント内容 %>
-                        <%= f.text_area :body %>
+                    <div class="row event_description">
+                        <%= f.label :イベント内容 %><br>
+                        <%= f.text_area :body,size:"69x5", autofocus: true %>
                     </div>
-                    <div class="row">
+                    <div class="row event_genre">
                         <%= f.label :ジャンル %>
                         <%= f.select :genre_id, {'異業種交流会': 1, '飲み会': 2, '街コン': 3, 'セミナー': 4, '勉強会': 5, '趣味会': 6, '読書会': 7, 'もくもく会': 8}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
                     </div>
