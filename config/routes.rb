@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   resources :genres, only: [:index]
   resources :rooms, only: [:create, :show, :index]
   resources :messages, only: [:create, :destroy]
-  resources :schedule, only: [:create, :update, :destroy]
+  resources :schedules, only: [:create, :update, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
