@@ -1,35 +1,8 @@
 <div class="container">
 	<div class="row">
-	<!-- ユーザー一覧 -->
 		<h2>ユーザー一覧</h2>
 		<div class="col-xs-7 ">
-			<table class="table table-hover table-inverse">
-
-				<thead>
-					<tr class="active">
-                        <th>プロフィール写真<th>
-						<th>氏名</th>
-						<th>自己紹介</th>
-					</tr>
-				</thead>
-
-				<tbody>
-					<% @users.each do |user| %>
-						<tr>
-                            <td><%= link_to user_path(user) do %>
-									<%= attachment_image_tag user, :avator_image, fallback: "noimage.png", size:"100x100" %>
-								<% end %>
-                            </td>
-							<td>
-								<%= link_to user_path(user) do %>
-									<%= user.name %>
-								<% end %>
-							</td>
-							<td><%= user.introduction %></td>
-                        </tr>
-                    <% end %>
-				</tbody>
-			</table>
+			<%= render 'users/index', users: @users %>
         </div>
 	
 	<!-- ランキング -->
