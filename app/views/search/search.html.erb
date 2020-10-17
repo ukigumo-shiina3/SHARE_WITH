@@ -1,0 +1,10 @@
+<div class="container">
+    <% if @model == 'event' %>
+        <h1>イベント検索結果 "<%= @content %>"</h1>
+        <%= render 'events/index', events: @datas %>
+    <% else %>
+        <h1>ユーザー検索結果 "<%= @content %>"</h1>
+        <%= render 'users/index', users: @datas %>
+    <% end %>
+</div>
+
