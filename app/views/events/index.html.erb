@@ -3,7 +3,9 @@
         <h4 class="events-index">PICK UP EVENTS</h4>
         <!-- 部分テンプレート -->
             <%= render 'events/index', events: @events %>
-            <%= paginate @events %>
+                <% if 0 < @events.length %>
+                    <%= paginate @events %>
+                <% end %>
             
             <!-- ランキング -->
             <div class="col-xs-3">
