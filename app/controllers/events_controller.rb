@@ -21,7 +21,6 @@ class EventsController < ApplicationController
     # @events = @genre.events.all
     if current_user != nil
       @events = Event.all.page(params[:page]).per(7)
-      @event = Event.new(event_params)
       @all_ranks = Event.create_all_ranks
       @schedules = Schedule.where(user_id: current_user.id) #JSON形式
     else
