@@ -19,13 +19,14 @@ class EventsController < ApplicationController
 
   def index
     # @events = @genre.events.all
-    if current_user != nil
-      @events = Event.all.page(params[:page]).per(7)
+    if current_user
+      @event = Event.new
+      @events = Event.all.page(params[:page]).per(6)
       @all_ranks = Event.create_all_ranks
       @schedules = Schedule.where(user_id: current_user.id) #JSON形式
     else
-      @events = Array.new
-      @schedules = Array.new #ログインしてない状態のトップページ
+      @events = Array.new #ログインしてない状態のトップページ表示
+      @schedules = Array.new 
       @all_ranks = Array.new
     end
   end

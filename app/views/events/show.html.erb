@@ -20,18 +20,14 @@
                 </div>
             </div>
         </div>
-        
-        <% @comments.each do |comment| %>
-            <div class="row">
-                <p><%= comment.comment %></p>
-                <%= link_to "Destroy", event_comment_path(comment.event_id,comment.id), method: :delete, class: "btn-lg btn-danger"%>
-            </div>
-        <% end %>
+        <div id="comment_<%= @event.id %>">
+        <%= render 'comments/comments', comments: @comments %>
+        </div>
 
-            <%= form_for [@event,@comment] do |f| %>
-                <%= f.text_area :comment, size: '100x10' %>
-                <%= f.submit '送信' %>
-            <% end %>
+        <%= form_for [@event, @comment] , remote: true do |f| %>
+            <%= f.text_area :comment, size: '100x10' %>
+            <%= f.submit '送信' %>
+        <% end %>
 
         <div class="row ">
             <div class="col-lg-3 event_button">
