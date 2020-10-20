@@ -1,15 +1,16 @@
-<div class="container">
     <div class="row events" >
         <h4 class="events-index">PICK UP EVENTS</h4>
         <!-- 部分テンプレート -->
             <%= render 'events/index', events: @events %>
+            <div class="row">
                 <% if 0 < @events.length %>
                     <%= paginate @events %>
                 <% end %>
-            
+            </div>
+                
             <!-- ランキング -->
-            <div class="col-xs-3">
-                <div class="row event_ranking">
+            <div class="col-xs-12 event_ranking">
+                <div class="row ">
                     <div class="ranking-title"><strong>人気投稿ランキング</strong></div>
                         <ul class="list_crown">
                         <% @all_ranks.each.with_index(1) do |rank, i| %>
@@ -28,6 +29,5 @@
                 </div>
             </div>
     </div>
-</div>
 
     
