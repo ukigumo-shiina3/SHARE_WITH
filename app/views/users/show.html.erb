@@ -1,9 +1,9 @@
 
-        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css">
+        <%#=link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css">
         <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.print.css" media='print'>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
-        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+        <script%% type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script%>
 
 <div class="container">
 	<div class="row">
@@ -123,17 +123,15 @@
 
         <h2><%= @user.name %></h2>
 
-        <% if @user.id == current_user.id %>
-
-        <% else %>
+        <% unless @user.id == current_user.id %>
             <% if @isRoom == true %>
-                <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
+                <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">チャットへ</a>
             <% else %>
                 <%= form_for @room do |f| %>
                     <%= fields_for @entry do |e| %>
-                        <%= e.hidden_field :user_id, :value=> @user.id %>
+                        <%= e.hidden_field :user_id, value: @user.id %>
                     <% end %>
-                    <%= f.submit "チャットを始める" %>
+                    <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
                 <% end %>
             <% end %>
         <% end %>
