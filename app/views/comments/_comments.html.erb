@@ -1,7 +1,5 @@
 <% comments.each do |comment| %>
-    <div class="row">
-        <p><%= comment.comment %><br><%= comment.user.name %>さん</p>
-        <%= link_to "Destroy", event_comment_path(comment.event_id,comment.id), method: :delete, class: "btn-lg btn-danger"%>
-    </div>
+    <p><%= comment.comment %><br><%= comment.user.name %>さん</p>
+    <%= link_to "Destroy", event_comment_path(comment.event_id,comment.id), method: :delete, remote:true, class: "btn-lg btn-danger"%>
 <% end %>
 

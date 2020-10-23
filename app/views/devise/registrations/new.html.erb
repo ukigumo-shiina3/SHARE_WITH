@@ -2,13 +2,13 @@
 
 <div class="container">
   <div class="row sign_up">
-    <p class="sign_up_content">ユーザーアカウント作成</p>
+    <p class="devide_content">ユーザーアカウント作成</p>
 
-    <p class="sign_up_content">新規ユーザーアカウント登録ページです。</p>
+    <p class="devide_content">新規ユーザーアカウント登録ページです。</p>
 
-    <p class="sign_up_content">下記項目をご入力頂くと、会員登録は完了です。</p>
+    <p class="devide_content">下記項目をご入力頂くと、会員登録は完了です。</p>
 
-    <p class="sign_up_content">お手数ですが、空欄を作らずご入力ください。</p>
+    <p class="devide_content">お手数ですが、空欄を作らずご入力ください。</p>
   </div>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -30,33 +30,40 @@
         });
     </script>
 
-    <div class="field">
-      <%= f.label :name %><br />
-      <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-    </div>
+  <div class="devise_item">
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
-    </div>
+      <div class="field">
+        <%= f.label :introduction %><br />
+        <%= f.text_field :introduction, autofocus: true, autocomplete: "introduction" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </div>
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
 
-    <div class="actions">
-      <%= f.submit "Sign up", class: 'btn btn-primary' %>
-    </div>
-  <% end %>
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
 
-  <%= render "devise/shared/links" %>
+      <div class="actions">
+        <%= f.submit "Sign up", class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+  <div>
 </div>

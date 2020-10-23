@@ -1,7 +1,65 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.calender {
-    width :50px;
-    height: 100px;
+.user_index_title {
+    background-color: rgba(255, 255, 255, .8);
+    width: 15%;
+    font-size: 40px;
+    font-family: 'Kaushan Script', cursive;
+    color: #337ab7;
+    margin: 50px 0px 100px 220px;
+}
+
+.user_index_item {
+    margin-left: 200px;
+}
+
+.user_dm {
+    margin-left: 150px;
+}
+
+.user_dm_index {
+    background-color: white;
+}
+
+.user_dm_name {
+    margin-left: 30px;
+}
+
+.user_button {
+    position: absolute;
+    bottom: 200px;
+    right: 300px;
+}
+
+.user_show_image {
+    padding-bottom: 450px;
+}
+
+.user_show {
+    margin-top: 100px;
+}
+
+.user_mypage {
+    margin-bottom: 30px;
+    margin-left: 20px;
+    font-size: 40px;
+}
+
+.user_show_item {
+    font-size: 25px;
+    background-color: rgba(255, 255, 255, .8);
+}
+
+.user_show_dm {
+    background-color: rgba(255, 255, 255, .8);
+    margin: 150px 0 0 350px;
+}
+
+.start_chat {
+    margin-left: 160px;
+}
+
+.user_introduction {
+    margin-left: 10px;
 }

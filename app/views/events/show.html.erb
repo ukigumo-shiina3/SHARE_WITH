@@ -1,12 +1,12 @@
-<div class="container">
-    <h3>イベント詳細</h3>
+
+    <h3 class="event_show" >イベント詳細</h3>
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-sm-5 event_show_image">
                 <%= attachment_image_tag @event, :image, :fill, 550, 450, format: 'png' %>
             </div>
         
-            <div class= "col-lg-6">
-                <div class="row" event_show>
+            <div class= "col-sm-5 event_show_item">
+                <div class="row" >
                     <div class="col-xs-4">イベント名</div>
                     <div class="col-xs-6"><%= @event.title %></div>
                 </div>
@@ -16,23 +16,27 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-4">ジャンル</div>
-                    <div class="col-xs-6"><%= @event.genre %></div>
+                    <div class="col-xs-6"><%= @event.genre.name %></div>
                 </div>
             </div>
         </div>
-        <div id="comment_<%= @event.id %>">
-        <%= render 'comments/comments', comments: @comments %>
-        </div>
 
-        <%= form_for [@event, @comment] , remote: true do |f| %>
-            <%= f.text_area :comment, size: '100x10' %>
-            <%= f.submit '送信' %>
-        <% end %>
+        <div class="event_comment">
+            <div class="event_comment_layout">
+                <div id="comment_<%= @event.id %>">
+                    <%= render 'comments/comments', comments: @comments %>
+                </div>
+            </div>
+            
+                <%= form_for [@event, @comment] , remote: true do |f| %>
+                    <%= f.text_area :comment, size: '100x10' %>
+                    <%= f.submit '送信' %>
+                <% end %>
+        </div>
 
         <div class="row ">
             <div class="col-lg-3 event_button">
-                <%= link_to '編集する', edit_event_path(@event), class: "btn btn-primary" %>
-                <%= link_to '削除する', event_path(@event.id), method: :delete, "data-confirm" =>"本当に削除しますか？", class: "btn btn-danger"%>
+                <%= link_to 'イベント編集', edit_event_path(@event), class: "btn btn-primary" %>
+                <%= link_to 'イベント削除', event_path(@event.id), method: :delete, "data-confirm" =>"本当に削除しますか？", class: "btn btn-danger"%>
             </div>
         </div>
-</div>

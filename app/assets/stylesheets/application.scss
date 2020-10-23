@@ -17,25 +17,45 @@
 @import "bootstrap";
 @import "font-awesome";
 
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Kaushan Script', cursive;
 }
 header {
-    height: 70px;
+    height: 90px;
     background-color: moccasin;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 20px;
+}
+
+.logo img {
+    position: relative;
+    height: 90px;
+    width: 100px;
+}
+
+
+.navbar .nav > li {
+	margin-top: 20px;
+}
+
+.welcome {
+    margin-top: 50px;
 }
 
 body {
     height: 100vh;
     overflow-y: scroll;
     transform: translateZ(0); 
-}
-
-.nav navbar-nav navbar-left {
-    color: rgb(240, 172, 140);
+    background-image: url(pc6.jpg);
+    background-size: cover;
+    background-position: top;
+    width:100%;
+    font-size: 20px;
+    // background: linear-gradient(rgb(255, 145, 0)
+    // , #ff2600);                               
 }
 
 footer {
@@ -70,4 +90,28 @@ border-radius: 15px;
 
 .search-form {
     float: right;
+    margin: 50px 30px 0 0;
 }
+
+input[type="text"] {
+    width: 300px;
+    height: 40px;
+}
+
+.devide_content {
+    background-color:rgb(128, 128, 128);
+    font-size: 30px;
+    font-family: cursive;
+    width: 57%;
+}
+
+// .devide_item {
+//     background-color: rgba(255, 255, 255, .3);
+// }
+
+.main-contents {
+    min-height: 1000px;
+}
+
+
+
