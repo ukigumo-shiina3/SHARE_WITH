@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+
+  before_action :authenticate_user!
+  
   def new 
     @event = Event.new
   end
@@ -21,7 +24,7 @@ class EventsController < ApplicationController
     # @events = @genre.events.all
     if current_user
       @event = Event.new
-      @events = Event.all.page(params[:page]).per(6)
+      @events = Event.all.page(params[:page]).per(7).reverse_order
       @all_ranks = Event.create_all_ranks
       @schedules = Schedule.where(user_id: current_user.id) #JSON形式
     else
@@ -68,11 +71,11 @@ class EventsController < ApplicationController
       user.password = SecureRandom.urlsafe_base64
     end
     sign_in user
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to events_path, notice: 'ゲストユーザーとしてログインしました。'
   end
 
   private
     def event_params
-      params.require(:event).permit(:user_id, :genre_id, :title, :body, :image, :event_hour, :event_minute, :recruitment)
+      params.require(:event).permit(:user_id, :genre_id, :title, :body, :image, :open_hour, :open_minute,:end_hour,:end_minute, :recruitment)
     end
 end
