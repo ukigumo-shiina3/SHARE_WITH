@@ -11,7 +11,8 @@ class Event < ApplicationRecord
     end
 
     def self.create_all_ranks 
-        # Event.find(Favorite.group(:event_id).order('count(event_id) desc').limit(3).pluck(:event_id))
         Event.find(Favorite.group(:event_id).order(Arel.sql("LOWER(event_id) desc")).limit(3).pluck(:event_id))
     end
+
+    validates :title, :body, :image_id, :recruitment, :event_date, :open_hour, :open_minute, :end_hour, :end_minute, presence: true
 end
