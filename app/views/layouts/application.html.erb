@@ -85,6 +85,11 @@
           <%= text_field_tag 'search[content]' %>
           <%= select_tag 'search[model]', options_for_select({ "User" => "user", "Event" => "event" }) %>
           <%= select_tag 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }) %>
+          <%= date_field_tag 'search[event_begin_date]',
+          Date.today, use_month_numbers: true %>
+          〜
+          <%= date_field_tag 'search[event_finish_date]',
+          Date.today, use_month_numbers: true, min: Date.new(2020, 11, 01), max: Date.(2025, 12, 31)  %>
           <%= submit_tag '検索', class: "btn btn-primary" %>
         <% end %>
       </div>
