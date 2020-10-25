@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:new_guest]
   
   def new 
     @event = Event.new
@@ -21,7 +21,6 @@ class EventsController < ApplicationController
   end
 
   def index
-    # @events = @genre.events.all
     if current_user
       @event = Event.new
       @events = Event.all.page(params[:page]).per(7).reverse_order
@@ -67,11 +66,11 @@ class EventsController < ApplicationController
   end
 
   def new_guest
-    user = User.find_or_create_by!(email: 'guest@example.com') do |user|
+    user = User.find_or_create_by!( name: 'test user', email: 'guest@example.com' ) do |user|
       user.password = SecureRandom.urlsafe_base64
     end
     sign_in user
-    redirect_to events_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to events_path
   end
 
   private
