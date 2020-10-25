@@ -17,25 +17,44 @@
 @import "bootstrap";
 @import "font-awesome";
 
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Kaushan Script', cursive;
 }
 header {
-    height: 70px;
+    height: 90px;
     background-color: moccasin;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 20px;
+    margin: 0 !important;
+}
+
+.logo img {
+    position: relative;
+    height: 90px;
+    width: 100px;
+}
+
+
+.navbar .nav > li {
+	margin-top: 20px;
+}
+
+.welcome {
+    margin-top: 50px;
 }
 
 body {
     height: 100vh;
     overflow-y: scroll;
     transform: translateZ(0); 
-}
-
-.nav navbar-nav navbar-left {
-    color: rgb(240, 172, 140);
+    background-image: url(pc6.jpg);
+    background-size: cover;
+    background-position: top;
+    width:100%;
+    font-size: 20px;                          
 }
 
 footer {
@@ -70,4 +89,35 @@ border-radius: 15px;
 
 .search-form {
     float: right;
+    margin: 50px 30px 0 0;
+}
+
+input[type="text"] {
+    width: 300px;
+    height: 40px;
+}
+
+.devide_content {
+    background-color:rgb(128, 128, 128);
+    font-size: 30px;
+    font-family: cursive;
+    width: 57%;
+}
+
+.main-contents {
+    min-height: 1000px;
+}
+
+.modal fade {
+    margin-top: 30px;
+}
+
+input[name="event[title]"] {
+    width: 200px;
+}
+
+.btn-lg-search {
+    margin-top: 28px;
+    margin-left: 10px;
+    font-size: 20px;
 }

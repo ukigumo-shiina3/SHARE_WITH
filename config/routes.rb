@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'search/search'
   devise_for :users
+  
   root 'events#index'  
   get 'home/about', to: 'homes#about'
   get 'home/howto', to: 'homes#howto'
@@ -16,5 +17,4 @@ Rails.application.routes.draw do
   resources :rooms, only: [:create, :show, :index]
   resources :messages, only: [:create, :destroy]
   resources :schedules, only: [:create, :update, :destroy]
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

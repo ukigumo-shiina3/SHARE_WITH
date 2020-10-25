@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+
+  before_action :authenticate_user!, except: [:new_guest]
+  
   def new 
     @event = Event.new
   end
@@ -18,14 +21,14 @@ class EventsController < ApplicationController
   end
 
   def index
-    # @events = @genre.events.all
-    if current_user != nil
-      @events = Event.all.page(params[:page]).per(7)
+    if current_user
+      @event = Event.new
+      @events = Event.all.page(params[:page]).per(7).reverse_order
       @all_ranks = Event.create_all_ranks
       @schedules = Schedule.where(user_id: current_user.id) #JSON形式
     else
-      @events = Array.new
-      @schedules = Array.new #ログインしてない状態のトップページ
+      @events = Array.new #ログインしてない状態のトップページ表示
+      @schedules = Array.new 
       @all_ranks = Array.new
     end
   end
@@ -63,15 +66,15 @@ class EventsController < ApplicationController
   end
 
   def new_guest
-    user = User.find_or_create_by!(email: 'guest@example.com') do |user|
+    user = User.find_or_create_by!( name: 'test user', email: 'guest@example.com' ) do |user|
       user.password = SecureRandom.urlsafe_base64
     end
     sign_in user
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to events_path
   end
 
   private
     def event_params
-      params.require(:event).permit(:user_id, :genre_id, :title, :body, :image, :event_hour, :event_minute, :recruitment)
+      params.require(:event).permit(:user_id, :genre_id, :title, :body, :image, :open_hour, :open_minute,:end_hour,:end_minute, :recruitment)
     end
 end

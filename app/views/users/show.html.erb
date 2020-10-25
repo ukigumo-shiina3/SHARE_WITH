@@ -1,145 +1,41 @@
-
-        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css">
-        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.print.css" media='print'>
-        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
-        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
-        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
-
-<div class="container">
-	<div class="row">
-            <h2><%= @user.name %>さんのマイページ</h2>
-		<p id="notice"><%= notice %></p>
-		<table>
-			<tbody>
-                <tr>
-					<td class="users_interval">プロフィール写真</td>
-                    <td class="users_interval"><%= attachment_image_tag @user, :avator_image, fallback: "noimage.png", size:"400x300" %><%#= @user.avator_image %></td>
-                <tr>
-				<tr>
-					<td class="users_interval">ユーザー名</td>
-                    <td class="users_interval"><%= @user.name %></td>
-                <tr>
-                <tr>
-					<td class="users_interval">メールアドレス</td>
-                    <td class="users_interval"><%= @user.email %></td>
-                <tr>
-            </tbody>
-		</table>
-
-
-        <!-- カレンダーの表示 -->
-        <h3 class="text-center">マイカレンダー</h3>
-        <div id="calendar">
-            <% if user_signed_in? %>
-                <% if @user.id == current_user.id %>
-                    <div id="inputScheduleForm" class="modal fade" tabindex="-1">
-                        <div class="modal-dialog modal-nm">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title">スケジュール登録</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <%= form_with model: @schedule do |f| %>
-                                        <div class="col">
-                                                <p>
-                                                    <span>タイトル</span>
-                                                    <span><%= f.text_field :title, class: "form-control", placeholder: "タイトルを入力してください" %></span>
-                                                </p>
-                                                <span>開始日時</span>
-                                                <span><%= f.datetime_field  :start, placeholder: "XXXX-XX-XX", class:"field" %> ~ </span><br>
-                                                <span>終了日時</span>
-                                                <span><%= f.datetime_field :end, placeholder: "XXXX-XX-XX", class:"field" %></span><br>
-                                                <span>詳細
-                                                <%= f.text_field :body, class: "form-control", placeholder: "タイトルの詳細を記入してください" %></span>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <%= f.submit "登録する", class: "btn btn-primary" %>
-                                            <%= f.hidden_field :user_id, :value => current_user.id %>
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-                                        </div>
-                                    <% end %>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-        </div>    
-        <!-- 編集 -->
-                <div id="inputEditForm">
-                    <%= render 'schedules/edit', schedules: @schedules %>
+<div class="container user_all">
+	<div class="row user_show">
+        <h2 class="user_mypage"><%= @user.name %>さんの詳細ページ</h2>
+            <div class="col-sm-5 user_show_image">
+                    <%= attachment_image_tag @user, :avator_image, :fill, 450, 350, format: 'png'%></div>
+            
+            <div class= "col-sm-7 user_show_item">
+                <div class="row" >
+					<div class="col-xs-4">ユーザー名</div>
+                    <div class="col-xs-6"><%= @user.name %></div>
+                <div class="row">
+                    <div class="col-xs-4 user_introduction">自己紹介</div>
+                    <div class="col-xs-6"><%= @user.introduction %></div>
                 </div>
-            <% end %>
-        <% end %>
-            <script>
-            // CRUDを行う際にCSRF対策のtokenを発行
-                $(document).ready(function() {
-                var prepare = function(options, originalOptions, jqXHR) {
-                var token;
-                if (!options.crossDomain) {
-                    token = $('meta[name="csrf-token"]').attr('content');
-                    if (token) {
-                    return jqXHR.setRequestHeader('X-CSRF-Token', token);
-                    }
-                }
-                };
-                }
-                )
+            </div>
+    </div>
 
-                // カレンダー表示
-                $('#calendar').fullCalendar ({
-                    header: {
-                        left: 'prev,next today',
-                        center: 'month,agendaWeek,agendaDay',
-                        right: 'title'
-                    },
-                    buttonText: {
-                        prev: "<",
-                        next: ">"
-                    },
-                    timezone: 'JST', //日本の標準時
-                    events: '/events.json',
-                    navLinks: true,
-                    selectable: true,
-                    selectHelper: true,
-                    defaultView: 'agendaWeek',
-                    // 日付クリック
-                    dayClick : function ( date , jsEvent , view ) {
-                        $('#inputScheduleForm').modal('show');
-                        },
-
-                    // event クリックで編集、削除
-                    eventClick : function(event, jsEvent , view) {
-                        jsEvent.preventDefault();
-                        $(`#inputScheduleEditForm${event.id}`).modal('show');
-                    },
-
-                    eventMouseover : function(event, jsEvent , view) {
-                        jsEvent.preventDefault();
-                    }
-                })
-
-            </script>
-
-        <h1>ユーザーとチャット</h1>
-
-        <h2><%= @user.name %></h2>
-
-        <% if @user.id == current_user.id %>
-
-        <% else %>
-            <% if @isRoom == true %>
-                <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
-            <% else %>
-                <%= form_for @room do |f| %>
-                    <%= fields_for @entry do |e| %>
-                        <%= e.hidden_field :user_id, :value=> @user.id %>
+    <div class="row">
+        <div class= "col-sm-3 user_show_dm">
+                <% unless @user.id == current_user.id %>
+                    <% if @isRoom == true %>
+                        <p class="user_show_room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">チャットへ</a>
+                    <% else %>
+                        <%= form_for @room do |f| %>
+                            <%= fields_for @entry do |e| %>
+                                <%= e.hidden_field :user_id, value: @user.id %>
+                            <% end %>
+                            <div class="start_chat"> 
+                                <%= f.submit "チャットをする", class:"btn btn-primary btn-md user-show-chat"%>
+                            <div>
+                        <% end %>
                     <% end %>
-                    <%= f.submit "チャットを始める" %>
                 <% end %>
-            <% end %>
-        <% end %>
-
-        <!-- 編集、削除ボタン -->
-        <%= link_to "編集する" ,edit_user_path(@user), class: "btn btn-primary admin_customers_link" %>
-        <%= link_to '削除する', user_path(@user.id), method: :delete, "data-confirm" =>"本当に削除しますか？", class: "btn btn-danger"%>
+            </div>
     </div>
 </div>
+
+    <div class="user_button">
+        <%= link_to "編集する" ,edit_user_path(@user), class: "btn btn-primary btn-lg " %>
+        <%= link_to '削除する', user_path(@user.id), method: :delete, "data-confirm" =>"本当に削除しますか？", class: "btn btn-danger btn-lg"%>
+    </div>

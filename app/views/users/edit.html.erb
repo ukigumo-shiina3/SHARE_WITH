@@ -1,6 +1,7 @@
-<div class="container">
-	<div class="row">
-            <h2><%= @user.name %>さんのユーザー詳細</h2>
+<div class="container-fluid user_all_edit">
+	<div class="row user_all_edit">
+    <div class="col-12">
+            <h2><%= @user.name %>さんのユーザー編集</h2>
 
             <!-- エラー文 -->
 		<% if @user.errors.any? %>
@@ -17,10 +18,25 @@
             <!--プロフィール写真 -->
             <div class="row form-interval">
 				<label class="col-lg-2">プロフィール写真</label>
-				<div  class="col-lg-10">
+				<div class="col-lg-10">
+                    <div class="edit_avator_image">
+                        <%= attachment_image_tag @user, :avator_image, fallback: "noimage.png",id: 'preview', size:"300x250" %>
+                    </div>
+                    <%= f.attachment_field :avator_image, id: "myImage" %>
 					<%= @user.avator_image %>
 				</div>
 			</div>
+
+            <!-- プレビュー機能 -->
+            <script>
+                $('#myImage').on('change', function (e) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $("#preview").attr('src', e.target.result);
+                }
+                reader.readAsDataURL(e.target.files[0]);
+                    });
+            </script>
 
             <!-- ユーザー名フォーム -->
 			<div class="row form-interval">
@@ -32,15 +48,15 @@
             <!-- ユーザー名フォーム -->
 
             <div class="row form-interval">
-                <label class="col-lg-2">メールアドレス</label>
+                <label class="col-lg-2">自己紹介</label>
                 <div class="col-lg-3">
-                    <%= f.email_field :email %>
+                    <%= f.text_field :introduction %>
                 </div>
             </div>
-
-            <div class="row form-interval">
+        </div>
+        </div>
+            <div class=" edit_button">
                 <%= f.submit "変更を保存", class:"btn btn-primary" %>
             </div>
 		<% end %>
-	</div>
 </div>

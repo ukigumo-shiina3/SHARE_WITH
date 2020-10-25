@@ -1,43 +1,25 @@
-<div class="container">
-	<div class="row">
-		<h2>ユーザー一覧</h2>
-		<div class="col-xs-7 ">
-			<%= render 'users/index', users: @users %>
-        </div>
 	
-	<!-- ランキング -->
-		<div class="col-xs-2">
-			<div class="row event_ranking">
-				<div class="ranking-title"><strong>人気投稿ランキング</strong></div>
-					<ul class="list_crown">
-					<% @all_ranks.each.with_index(1) do |rank, i| %>
-					<li>
-						<%= link_to event_path(rank) do %>
-							第<%= i %>位<br>
-							<%= rank.title %>
-						<% end %>
-					</li>
-				<% end %>
-			</div>   
-		</div>
+	<% if user_signed_in? %>
+	<div class="row event_all">
+		<h2 class="user_index_title">ユーザー一覧</h2>
+		<div class="col-xs-7 user_index_item">
+			<%= render 'users/index', users: @users %>
+				<%= paginate @users %>
+        </div>
 
 		<!-- DM -->
-		<div class="col-xs-2">
+		<div class="col-xs-2 user_dm">
 			<div class="row">
-			<h1>DMユーザー一覧</h1>
-			<% if user_signed_in? %>
-			<h2>Hello <%= current_user.name %></h2>
-				<% @users.each do |u| %>
-				<p><a href="/users/<%= u.id %>"><%= u.name %>さん</a></p>
-				<hr>
-				<% end %>
-				<%= link_to "ログアウト", destroy_user_session_path, :method => :delete %>
-			<% else %>
-				<%= link_to "ユーザーを登録する", new_user_registration_path %>
-				<br>
-				<%= link_to "ログインする", new_user_session_path %>
-			<% end %>
+				<div class="user_dm_index">
+				<h1>DMユーザー一覧</h1>
+					<% @users.each do |u| %>
+					<p class="user_dm_name"><a href="/users/<%= u.id %>"><%= u.name %>さん</a></p>
+					<hr>
+					<% end %>
+					<%= paginate @users %>
+		<% else %>
+		<% end %>
+
 			</div>   
 		</div>
 	</div>
-</div>

@@ -1,33 +1,13 @@
-<div class="container">
     <div class="row events" >
         <h4 class="events-index">PICK UP EVENTS</h4>
+    
         <!-- 部分テンプレート -->
             <%= render 'events/index', events: @events %>
+            <div class="event_paginate">
                 <% if 0 < @events.length %>
                     <%= paginate @events %>
                 <% end %>
-            
-            <!-- ランキング -->
-            <div class="col-xs-3">
-                <div class="row event_ranking">
-                    <div class="ranking-title"><strong>人気投稿ランキング</strong></div>
-                        <ul class="list_crown">
-                        <% @all_ranks.each.with_index(1) do |rank, i| %>
-                        <li>
-                            <%= link_to event_path(rank) do %>
-                                第<%= i %>位<br>
-                                <%= rank.title %>
-                            <% end %>
-                        </li>
-                    <% end %>
-                </div>   
             </div>
-            <!-- カレンダー -->
-                <div class="row calender">
-                    <h4 class="mt-5">マイカレンダー</h4>
-                </div>
-            </div>
-    </div>
-</div>
+        
 
     

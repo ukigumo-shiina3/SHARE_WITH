@@ -1,6 +1,7 @@
-<div class="container">
-    <div class="row">イベント編集</div>
-        <div class="row">
+
+<div class="container event_all">
+    <div class="row event_edit_title">イベント編集</div>
+        <div class="row event_edit_item ">
             <%= form_with model:@event, url: event_path,method: :patch do |f| %>
                 <div class="col-lg-5"class="col-lg-5">
                     <div class="event-image">
@@ -15,13 +16,42 @@
                     </div>
                     <div class="row event_description">
                         <%= f.label :イベント内容 %><br>
-                        <%= f.text_area :body,size:"69x5", autofocus: true %>
+                        <%= f.text_area :body,size:"30x5", autofocus: true %>
                     </div>
                     <div class="row event_genre">
                         <%= f.label :ジャンル %>
                         <%= f.select :genre_id, {'異業種交流会': 1, '飲み会': 2, '街コン': 3, 'セミナー': 4, '勉強会': 5, '趣味会': 6, '読書会': 7, 'もくもく会': 8}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
                     </div>
-                    <div class="row">
+                    <div class="row form-interval">
+                        <%= f.label :日程%><br>
+                        <%= f.date_select :event_date, 
+                            {
+                                :order => [:year, :month, :day ], 
+                                :start_year => 2020, 
+                                :end_year => 2025,
+                                :use_month_numbers => true 
+                            }, 
+                            {:class => "input-mini"}  
+                        %>
+                    </div>
+                    <div class="row form-interval">
+                        <%= f.label :開始時間 %>
+                        <%= f.text_area :open_hour,placeholder: "12",size:"5x1" %>時
+                        <%= f.text_area :open_minute,placeholder: "00",size:"5x1" %>分
+
+                        <%= f.label :終了時間 %>
+                        <%= f.text_area :end_hour,placeholder: "14",size:"5x1" %>時
+                        <%= f.text_area :end_minute,placeholder: "30",size:"5x1" %>分
+                    </div>
+                    <div class="row form-interval">
+                        <%= f.label :内容 %><br>
+                        <%= f.text_area :body,placeholder: "普段話せない業界の人と楽しく話しましょう〜〜！！", size:"30x5" %>
+                    </div>
+                    <div class="row form-interval">
+                        <%= f.label :募集要項 %>
+                        <%= f.text_area :recruitment,placeholder: "年代問わず誰でも参加OKです！", size:"30x3" %>
+                    </div>
+                    <div class="row event_save_button">
                         <%= f.submit "変更を保存", class: "btn btn-primary btn-lg" %>
                     </div>
                 </div>

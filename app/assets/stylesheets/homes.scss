@@ -1,3 +1,32 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
+
+.home_font {
+    font-family: 'Noto Serif JP', sans-serif;
+}
+
+.about_description {
+    background-color: rgba(255, 255, 255, .3);
+    margin-top: 150px;
+}
+
+.about_title {
+    font-size: 30px;
+    margin-top: 50px;
+}
+
+.about_bottom {
+    margin-bottom: 50px;
+}
+
+.howto_description {
+    background-color: rgba(255, 255, 255, .3);
+    margin-top: 150px;
+}
+
+.howto_title {
+    font-size: 30px;
+    margin-top: 50px;
+}
