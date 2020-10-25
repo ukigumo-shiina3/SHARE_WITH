@@ -17,6 +17,10 @@ ja:
         locked_at: ロック時刻
         password: パスワード
         password_confirmation: パスワード（確認用）
+        6_characters_minimum: 6文字以上
+        characters_minimum: 文字以上
+        characters: 文字
+        minimum: 以上
         remember_created_at: ログイン記憶時刻
         remember_me: ログインを記憶する
         reset_password_sent_at: パスワードリセット送信時刻
