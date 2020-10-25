@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.min.css">
   </head>
@@ -50,6 +49,40 @@
           <li>
               <%= link_to "Logout", destroy_user_session_path, method: :delete %>
           </li>
+
+                  <button type="button" class="btn btn-primary btn-lg-search" data-toggle="modal" data-target="#sampleModal">search
+            </button>
+            <!-- モーダルダイアログ -->
+            <div class="modal fade" id="sampleModal" tabindex="-1">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+                    <h4 class="modal-title">タイトル</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class='main-contents'>
+                        <div class="search-form">
+                          <%= form_tag(search_path, method: :get) do %>
+                              <%= text_field_tag 'search[content]' %>
+                            <%= select_tag 'search[model]', options_for_select({ "User" => "user", "Event" => "event" }) %>
+                            <%= select_tag 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }) %>
+                            <%= date_field_tag 'search[event_begin_date]',
+                            Date.today, use_month_numbers: true %>
+                            〜
+                            <%= date_field_tag 'search[event_finish_date]',
+                            Date.today, use_month_numbers: true, min: Date.new(2020, 11, 01)  %>
+                            <%= submit_tag '検索', class: "btn btn-primary " %>
+                            <% end %>
+                        </div>
+                    </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                    <button type="button" class="btn btn-primary btn-lg">ボタン</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           <% else %>
           <li>
               <%= link_to "Home", events_path %>
@@ -78,22 +111,7 @@
     </div>
   </header>  
 
-  <div class='main-contents'>
-    <% if user_signed_in? %>
-      <div class="search-form">
-        <%= form_tag(search_path, method: :get) do %>
-          <%= text_field_tag 'search[content]' %>
-          <%= select_tag 'search[model]', options_for_select({ "User" => "user", "Event" => "event" }) %>
-          <%= select_tag 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }) %>
-          <%= date_field_tag 'search[event_begin_date]',
-          Date.today, use_month_numbers: true %>
-          〜
-          <%= date_field_tag 'search[event_finish_date]',
-          Date.today, use_month_numbers: true, min: Date.new(2020, 11, 01), max: Date.(2025, 12, 31)  %>
-          <%= submit_tag '検索', class: "btn btn-primary" %>
-        <% end %>
-      </div>
-    <% end %>
+  
 
     <%= yield %>
   </div>
