@@ -1,16 +1,12 @@
-<div class="container">
-<div class="row">
-    <div class="left-button">
-        <%= link_to "ユーザー一覧に戻る", "/users/index",class:"edit-link" %>
-    </div>
-
-        <h4 class="rooms-title">気になる同士</h4>
+<div class="container room_all">
+    <div class="row">
+        <h4 class="room-title">チャットルーム</h4>
         <% @entries.each do |e| %>
             <div class="user-name">
             <strong>
                 <%= attachment_image_tag e.user, :avator_image, :fill, 150, 150, fallback: "noimage.png" %>
                 <a class="rooms-user-link" href="/users/<%= e.user.id %>">
-                    <%= e.user.name %>さん
+                    <div class="room_user_name"><%= e.user.name %>さん</div>
                 </a>
             </strong>
             </div>
@@ -43,5 +39,5 @@
                 <% end %>
             </div>
         </div>
-</div>
+    </div>
 </div>

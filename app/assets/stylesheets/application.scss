@@ -28,6 +28,7 @@ header {
     background-color: moccasin;
     font-family: 'Kaushan Script', cursive;
     font-size: 20px;
+    margin: 0 !important;
 }
 
 .logo img {
@@ -53,9 +54,7 @@ body {
     background-size: cover;
     background-position: top;
     width:100%;
-    font-size: 20px;
-    // background: linear-gradient(rgb(255, 145, 0)
-    // , #ff2600);                               
+    font-size: 20px;                          
 }
 
 footer {
@@ -105,13 +104,20 @@ input[type="text"] {
     width: 57%;
 }
 
-// .devide_item {
-//     background-color: rgba(255, 255, 255, .3);
-// }
-
 .main-contents {
     min-height: 1000px;
 }
 
+.modal fade {
+    margin-top: 30px;
+}
 
+input[name="event[title]"] {
+    width: 200px;
+}
 
+.btn-lg-search {
+    margin-top: 28px;
+    margin-left: 10px;
+    font-size: 20px;
+}

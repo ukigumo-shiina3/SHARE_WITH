@@ -1,6 +1,22 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user_all {
+    background-color: rgba(255, 255, 255, 1);
+    width: 100% !important;
+}
+
+.user_all_edit {
+    background-color: rgba(255, 255, 255, 1);
+    height: 100px;
+}
+
+
+.table table-hover table-inverse {
+    background-color: rgba(255, 255, 255, 1);
+}
+
 .user_index_title {
     background-color: rgba(255, 255, 255, .8);
     width: 15%;
@@ -38,6 +54,8 @@
 
 .user_show {
     margin-top: 100px;
+    background-color: rgba(255, 255, 255, 1);
+    height: 600px;
 }
 
 .user_mypage {
@@ -62,4 +80,12 @@
 
 .user_introduction {
     margin-left: 10px;
+}
+
+.edit_button {
+    margin-left: 500px;
+}
+
+.user_show_room {
+    margin-bottom: 300px;
 }

@@ -1,19 +1,25 @@
 // Place all the styles related to the rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.left-button {
-    background-color: rgba(255, 255, 255, .9);
-    width: 30%;
-    margin-bottom: 30px;
-}
+.room_all {
+    background-color: rgba(255, 255, 255, 1);
+} 
 
-user-name {
-    background-color: rgba(255, 255, 255, .9);
-    width: 30%;
+.room-title {
+    font-size: 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 25%;
+    margin-bottom: 50px;
+    margin-top: 60px;
+    color: #337ab7;
 }
 
 .rooms-user-link {
     margin-left: 50px;
+}
+
+.room_user_name {
+    
 }
 
 .chat-box {
@@ -33,10 +39,8 @@ user-name {
     margin-left: 270px;
 }
 
-// .user-name {
-//     margin-bottom: 30px;
-// }
-
 .chats {
     margin-top: 100px;
 }
+
+

@@ -1,5 +1,6 @@
-<div class="container">
-	<div class="row">
+<div class="container-fluid user_all_edit">
+	<div class="row user_all_edit">
+    <div class="col-12">
             <h2><%= @user.name %>さんのユーザー編集</h2>
 
             <!-- エラー文 -->
@@ -52,10 +53,10 @@
                     <%= f.text_field :introduction %>
                 </div>
             </div>
-
-            <div class="row form-interval">
+        </div>
+        </div>
+            <div class=" edit_button">
                 <%= f.submit "変更を保存", class:"btn btn-primary" %>
             </div>
 		<% end %>
-	</div>
 </div>

@@ -1,4 +1,4 @@
-<div class="container ">
+<div class="container user_all">
 	<div class="row user_show">
         <h2 class="user_mypage"><%= @user.name %>さんの詳細ページ</h2>
             <div class="col-sm-5 user_show_image">
@@ -17,10 +17,9 @@
 
     <div class="row">
         <div class= "col-sm-3 user_show_dm">
-            <h2><%= @user.name %></h2>
                 <% unless @user.id == current_user.id %>
                     <% if @isRoom == true %>
-                        <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">チャットへ</a>
+                        <p class="user_show_room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">チャットへ</a>
                     <% else %>
                         <%= form_for @room do |f| %>
                             <%= fields_for @entry do |e| %>

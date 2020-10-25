@@ -1,14 +1,14 @@
-<div class="container">
+<div class="container event_all">
     <div class="row event_post">イベント新規登録</div>
     <div class='row'>
         <% if @event.errors.any? %>
             <div id="error_explanation">
-                <h2><%= pluralize(@event.errors.count, "error") %> 保存に失敗しました。</h2>
+                <h2><%= pluralize(@event.errors.count, "エラー") %> 保存に失敗しました。</h2>
             </div>
         <% end %>
         <div class="row">
             <%= form_with model:@event, url: events_path, local: true do |f| %>
-                <%#= render "error_messages", event @event %>
+                <%= render 'events/error_messages', event:@event %>
                 <div class="col-lg-4 new_event_image">
                     <div class="event-image">
                         <%= attachment_image_tag @event, :image, fallback: "noimage.png",id: 'preview', size:"300x200" %>
@@ -31,7 +31,7 @@
                 <div class="col-lg-3 col-lg-offset-1" >
                     <div class="row form-interval">
                         <%= f.label :タイトル%><br>
-                        <%= f.text_field :title,placeholder: "異業種交流会", :size => "60x15" %>
+                        <%= f.text_field :title,placeholder: "異業種交流会", :size => "30*30" %>
                     </div>
                     <div class="row form-interval">
                         <%= f.label :日程%><br>
