@@ -1,40 +1,40 @@
-<div class="container">
-  <div class="row login">
-    <p class="devide_content">ユーザーログイン</p>
-
-    <p class="devide_content">ユーザーログイン登録ページです</p>
-
-    <p class="devide_content">下記項目をご入力頂くと、ログインは完了です。</p>
-
-    <p class="devide_content">お手数ですが、空欄を作らずご入力ください。</p>
-
-  </div>
-
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="row login_item">
-      <div class="field">
-        <%= f.label :email %><br />
+<div class="box">
+  <div class="box-inner">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <h1>ログイン</h1>
+      <div class="box-email">
+        <%= f.label :email, "メールアドレス" %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
-
-      <div class="field">
-        <%= f.label :password %><br />
+      <div class="box-password">
+        <div class="a-row">
+          <div class="column-left">
+            <%= f.label :password, "パスワード" %>
+          </div>
+        </div>
         <%= f.password_field :password, autocomplete: "current-password" %>
       </div>
-
-      <% if devise_mapping.rememberable? %>
-        <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+      <div class="box-login">
+        <%= f.submit "ログイン" %>
+        <div class="legal-text">
+          続行することで、SHARE WITH の
+          <%= link_to "利用規約", "#" %>
+          および
+          <%= link_to "プライバシー規約", "#" %>
+          に同意するものとみなされます。
         </div>
-      <% end %>
-
-      <div class="actions">
-        <%= f.submit "Log in" %>
+        <% if devise_mapping.rememberable? %>
+          <div class="remember">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember, "ログインしたままにする" %>
+          </div>
+        <% end %>
       </div>
     <% end %>
 
-    <%= render "devise/shared/links" %>
+    <div class="box-newusr">
+      <p><span>------------</span>SHARE WITHの新しいお客様ですか？ <span>------------</span></p>
+      <%= link_to "SHARE WITHアカウントを作成", new_user_registration_path %>
     </div>
-
+  </div>
 </div>
