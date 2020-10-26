@@ -6,17 +6,6 @@
 			<%= render 'users/index', users: @users %>
 				<%= paginate @users %>
         </div>
-
-		<!-- DM -->
-		<div class="col-xs-2 user_dm">
-			<div class="row">
-				<div class="user_dm_index">
-				<h1>DMユーザー一覧</h1>
-					<% @users.each do |u| %>
-					<p class="user_dm_name"><a href="/users/<%= u.id %>"><%= u.name %>さん</a></p>
-					<hr>
-					<% end %>
-					<%= paginate @users %>
 		<% else %>
 		<% end %>
 

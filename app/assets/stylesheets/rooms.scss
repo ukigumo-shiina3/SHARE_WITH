@@ -3,7 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .room_all {
     background-color: rgba(255, 255, 255, 1);
+    width: 100% !important;
 } 
+
+.room_show {
+    padding-left: 200px;
+}
+
+.user-name {
+    width: 400px;
+}
 
 .room-title {
     font-size: 40px;
@@ -14,16 +23,17 @@
     color: #337ab7;
 }
 
+// .user-name {
+//     width: 30px;
+// }
+
 .rooms-user-link {
     margin-left: 50px;
 }
 
-.room_user_name {
-    
-}
-
 .chat-box {
     margin-bottom: 30px;
+    width: 200%;
 }
 
 .chat-face {
@@ -32,7 +42,7 @@
 
 .chat-hukidashi {
     background-color: rgba(255, 255, 255, .9);
-    width: 30%;
+    width: 200%;
 }
 
 .delete_button {
