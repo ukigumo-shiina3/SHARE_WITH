@@ -1,8 +1,5 @@
-<div class="container-fluid user_all_edit">
-	<div class="row user_all_edit">
-    <div class="col-12">
-            <h2><%= @user.name %>さんのユーザー編集</h2>
-
+<div class="container user_all">
+	<div class="row user_edit">
             <!-- エラー文 -->
 		<% if @user.errors.any? %>
             <h2><%= @user.errors.count %>件のエラーが発生しました。</h2>
@@ -12,15 +9,14 @@
                 <% end %>
             </ul>
         <% end %>
-        <!-- エラー文 -->
 
+        <h2 class="user_edit_profile"><%= @user.name %>さんのユーザー編集</h2>
         <%= form_for(@user, url:"/users/#{@user.id}") do |f| %>
-            <!--プロフィール写真 -->
-            <div class="row form-interval">
-				<label class="col-lg-2">プロフィール写真</label>
+            <div class="row form_interval ">
+				<label class="col-lg-2 ">プロフィール写真</label>
 				<div class="col-lg-10">
                     <div class="edit_avator_image">
-                        <%= attachment_image_tag @user, :avator_image, fallback: "noimage.png",id: 'preview', size:"300x250" %>
+                        <%= attachment_image_tag @user, :avator_image, fallback: "noimage.png",id: 'preview', size:"300x300" %>
                     </div>
                     <%= f.attachment_field :avator_image, id: "myImage" %>
 					<%= @user.avator_image %>
@@ -38,16 +34,14 @@
                     });
             </script>
 
-            <!-- ユーザー名フォーム -->
-			<div class="row form-interval">
+			<div class="row form_interval">
                 <label class="col-lg-2">ユーザー名</label>
                 <div class="col-lg-2">
                     <%= f.text_field :name %>
                 </div>
             </div>
-            <!-- ユーザー名フォーム -->
 
-            <div class="row form-interval">
+            <div class="row form_interval">
                 <label class="col-lg-2">自己紹介</label>
                 <div class="col-lg-3">
                     <%= f.text_field :introduction %>
@@ -56,7 +50,6 @@
                 <div class=" edit_button">
                 <%= f.submit "変更を保存", class:"btn btn-primary" %>
             </div>
-        </div>
         </div>
         
 		<% end %>

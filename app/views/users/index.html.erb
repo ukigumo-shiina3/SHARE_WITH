@@ -1,6 +1,6 @@
 	
 	<% if user_signed_in? %>
-	<div class="row event_all">
+	<div class="row user_all">
 		<h2 class="user_index_title">ユーザー一覧</h2>
 		<div class="col-xs-7 user_index_item">
 			<%= render 'users/index', users: @users %>

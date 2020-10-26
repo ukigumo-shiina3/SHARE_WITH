@@ -1,7 +1,6 @@
-
 <div class="container event_all">
-    <div class="row event_edit_title">イベント編集</div>
-        <div class="row event_edit_item ">
+        <div class="row event_edit ">
+            <div class="row event_edit_title">イベント編集</div>
             <%= form_with model:@event, url: event_path,method: :patch do |f| %>
                 <div class="col-lg-5"class="col-lg-5">
                     <div class="event-image">
@@ -11,9 +10,9 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="row evewnt_name">
-                        <%= f.label :イベント名 %>
+                        <%= f.label :イベント名 %><br>
                         <%= f.text_field :title %>
-                    </div>
+                    </div><br>
                     <div class="row form-interval">
                         <%= f.label :日程%><br>
                         <%= f.date_select :event_date, 
@@ -27,11 +26,11 @@
                         %>
                     </div>
                     <div class="row form-interval">
-                        <%= f.label :開始時間 %>
+                        <%= f.label :開始時間 %><br>
                         <%= f.text_area :open_hour,placeholder: "12",size:"5x1" %>時
-                        <%= f.text_area :open_minute,placeholder: "00",size:"5x1" %>分
+                        <%= f.text_area :open_minute,placeholder: "00",size:"5x1" %>分<br>
 
-                        <%= f.label :終了時間 %>
+                        <%= f.label :終了時間 %><br>
                         <%= f.text_area :end_hour,placeholder: "14",size:"5x1" %>時
                         <%= f.text_area :end_minute,placeholder: "30",size:"5x1" %>分
                     </div>
