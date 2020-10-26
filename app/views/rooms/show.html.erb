@@ -1,18 +1,18 @@
 <div class="container room_all">
-    <div class="row">
+    <div class="row room_show">
         <h4 class="room-title">チャットルーム</h4>
         <% @entries.each do |e| %>
-            <div class="user-name">
-            <strong>
-                <%= attachment_image_tag e.user, :avator_image, :fill, 150, 150, fallback: "noimage.png" %>
-                <a class="rooms-user-link" href="/users/<%= e.user.id %>">
-                    <div class="room_user_name"><%= e.user.name %>さん</div>
-                </a>
-            </strong>
+            <div class="col-1 user-name">
+                <strong>
+                    <%= attachment_image_tag e.user, :avator_image, :fill, 150, 150, fallback: "noimage.png" %>
+                    <a class="rooms-user-link" href="/users/<%= e.user.id %>">
+                        <div class="room_user_name"><%= e.user.name %>さん</div>
+                    </a>
+                </strong>
             </div>
         <% end %>
 
-        <div class="chats">
+        <div class="col-7 chats">
             <div class="chat">
                 <% if @messages.present? %>
                     <% @messages.each do |m| %>
