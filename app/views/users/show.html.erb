@@ -2,7 +2,7 @@
 	<div class="row user_show">
         <h2 class="user_mypage"><%= @user.name %>さんの詳細ページ</h2>
             <div class="col-sm-5 user_show_image">
-                    <%= attachment_image_tag @user, :avator_image, :fill, 450, 350, format: 'png'%></div>
+                    <%= attachment_image_tag @user, :avator_image, :fill, 350, 250, format: 'png'%></div>
             
             <div class= "col-sm-7 user_show_item">
                 <div class="row" >
@@ -26,7 +26,7 @@
                                 <%= e.hidden_field :user_id, value: @user.id %>
                             <% end %>
                             <div class="start_chat"> 
-                                <%= f.submit "チャットをする", class:"btn btn-primary btn-md user-show-chat"%>
+                                <%= f.submit "チャットをする", class:"btn btn-success btn-lg user-show-chat"%>
                             <div>
                         <% end %>
                     <% end %>

@@ -1,6 +1,7 @@
 <div class="container event_all">
+    
+    <div class='row event_new'>
     <div class="row event_post">イベント新規登録</div>
-    <div class='row'>
         <% if @event.errors.any? %>
             <div id="error_explanation">
                 <h2><%= pluralize(@event.errors.count, "エラー") %> 保存に失敗しました。</h2>
@@ -46,11 +47,11 @@
                         %>
                     </div>
                     <div class="row form-interval">
-                        <%= f.label :開始時間 %>
+                        <%= f.label :開始時間 %><br>
                         <%= f.text_area :open_hour,placeholder: "12",size:"5x1" %>時
-                        <%= f.text_area :open_minute,placeholder: "00",size:"5x1" %>分
+                        <%= f.text_area :open_minute,placeholder: "00",size:"5x1" %>分<br>
 
-                        <%= f.label :終了時間 %>
+                        <%= f.label :終了時間 %><br>
                         <%= f.text_area :end_hour,placeholder: "14",size:"5x1" %>時
                         <%= f.text_area :end_minute,placeholder: "30",size:"5x1" %>分
                     </div>
@@ -59,13 +60,12 @@
                         <%= f.text_area :body,placeholder: "普段話せない業界の人と楽しく話しましょう〜〜！！", size:"20x5" %>
                     </div>
                     <div class="row form-interval">
-                        <%= f.label :募集要項 %>
+                        <%= f.label :募集要項 %><br>
                         <%= f.text_area :recruitment,placeholder: "年代問わず誰でも参加OKです！" %>
                     </div>
                     <div class="row form-interval">
                         <%= f.label :ジャンル %>
                         <%= f.select :genre_id, {'異業種交流会': 1, '飲み会': 2, '街コン': 3, 'セミナー': 4, '勉強会': 5, '趣味会': 6, '読書会': 7, 'もくもく会': 8}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
-                        <%#= f.collection_select :genre_id, :id, :name %>
                     </div>
                 </div>
 

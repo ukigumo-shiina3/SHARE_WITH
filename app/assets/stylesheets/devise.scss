@@ -4,6 +4,22 @@
     text-decoration: none;
     }
 
+    body {
+        height: 100vh;
+        overflow-y: scroll;
+        transform: translateZ(0); 
+        background-image: image-url('pc6.jpg');
+        // background-image: url(pc6.jpg);
+        background-size: cover;
+        background-position: top;
+        width:100%;
+        font-size: 20px;                          
+    }
+
+    .main-contents {
+        min-height: 1500px;
+    }
+
     .box {
     width: 380px;
     height: 450px;
@@ -145,3 +161,4 @@
     .box-newusr a:hover {
     background: #e7e9ec;
     }
+
