@@ -3,13 +3,36 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
 
+
 .home_font {
     font-family: 'Noto Serif JP', sans-serif;
+    font-size: 20px;
+    background-image: image-url('pc6.jpg');
+    // background-image: url(pc6.jpg);
+    background-size: cover;
+    background-position: top;
+    width: 100%;
+    height: 2000px;
+    background-repeat : repeat
+}
+
+.home_about {
+    font-family: 'Noto Serif JP', sans-serif;
+    font-size: 20px;
+    background-image: image-url('pc6.jpg');
+    // background-image: url(pc6.jpg);
+    background-size: cover;
+    background-position: top;
+    width: 100%;
+    height: 2000px;
+    background-repeat : repeat
 }
 
 .about_description {
-    background-color: rgba(255, 255, 255, .3);
-    margin-top: 150px;
+    background-color: rgba(255, 255, 255, .7);
+    padding-left: 200px;
+    padding-top: 15px;
+    height: 2000px;
 }
 
 .about_explanation {
@@ -22,7 +45,7 @@
 
 .about_title {
     font-size: 30px;
-    margin-top: 50px;
+    padding-top: 50px;
 }
 
 .about_bottom {
@@ -37,7 +60,7 @@
 
 .howto_title {
     font-size: 30px;
-    margin-top: 50px;
+    padding-top: 50px;
 }
 
 .howto_item {
