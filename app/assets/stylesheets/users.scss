@@ -10,13 +10,6 @@
     font-size: 20px;
 }
 
-// .user_all_edit {
-//     background-color: rgba(255, 255, 255, 1);
-//     width: 100% !important;
-//     height: 1200px;
-// }
-
-
 .table table-hover table-inverse {
     background-color: rgba(255, 255, 255, 1);
 }
@@ -27,7 +20,7 @@
     font-size: 40px;
     font-family: 'Kaushan Script', cursive;
     color: #337ab7;
-    margin: 50px 0px 100px 220px;
+    margin: 50px 0px 20px 220px;
 }
 
 .user_index_item {
@@ -44,12 +37,6 @@
 
 .user_dm_name {
     margin-left: 30px;
-}
-
-.user_button {
-    position: absolute;
-    bottom: 400px;
-    right: 30px;
 }
 
 .user_show_image {
@@ -71,12 +58,6 @@
 .user_show_item {
     font-size: 25px;
     background-color: rgba(255, 255, 255, .8);
-}
-
-.user_show_dm {
-    background-color: rgba(255, 255, 255, .8);
-    margin: 140px 0 0px 375px;
-    padding-bottom: 30px;
 }
 
 .user_introduction {
@@ -101,4 +82,21 @@
 
 .user_edit_profile {
     margin-bottom: 40px;
+}
+
+.chat_button1 {
+    position: relative;
+    bottom: 200px;
+}
+
+.chat_button2 {
+    position: relative;
+    bottom: 200px;
+    right: 33px;
+}
+
+.user_button {
+    position: relative;
+    bottom: 700px;
+    left: 1020px;
 }

@@ -66,10 +66,11 @@ class EventsController < ApplicationController
   end
 
   def new_guest
-    user = User.find_or_create_by!( name: 'test user', email: 'guest@example.com' ) do |user|
+    user = User.find_or_create_by!(name: 'test user', email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
+      user.introduction = 'I am guest user'
     end
-    sign_in user
+    sign_in(:user, user)
     redirect_to events_path
   end
 

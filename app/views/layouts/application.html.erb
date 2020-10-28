@@ -9,16 +9,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.min.css">
   </head>
 
 <body>
   <header class="navbar">
-    <div class="container">
+    <!-- <div class="container"> >-->
       <nav class="nav navbar-nav navbar-left">
         <%= link_to root_path do %>
-          <p class="logo"><%= image_tag "logo3.png" %></p>
+          <p class="logo"><%= image_tag "logo4.png" %></p>
         <% end %>
       </nav>
 
@@ -109,14 +107,14 @@
           <% end %>
         </ul>
       </nav>
-    </div>
+    <!-- </div> -->
   </header>  
 
   
 
-    <%= yield %>
+    
   </div>
-
+    <%= yield %>
 
   <%#footer>
     <p class="copyright">CopyRight © 2020-20XX SHARE WITH CORPORATION.</p> 

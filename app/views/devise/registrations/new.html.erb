@@ -1,64 +1,64 @@
-<div class="box-sign-up">
+<div class="devise-up">
+  <div class="box-sign-up">
+    <div class="box-inner">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <h1>新規登録</h1>
 
-  <div class="box-inner">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-    <h1>新規登録</h1>
-
-  <div class="box-image">
-    <div class="avator-image">
-      <%= image_tag 'noimage.png', id: 'preview', width: '150px' %>
-    </div>
-    <%= f.attachment_field :avator_image, id: "myImage" %>
-  </div><br>
-    <!-- プレビュー機能 -->
-    <script>
-      $('#myImage').on('change', function (e) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            $("#preview").attr('src', e.target.result);
-        }
-      reader.readAsDataURL(e.target.files[0]);
-        });
-    </script>
-
-
-      <div class="box-name">
-        <%= f.label :name %><br />
-        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-      </div>
-
-      <div class="box-email">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
-
-      <div class="box-introduction">
-        <%= f.label :introduction %><br />
-        <%= f.text_field :introduction, autofocus: true, autocomplete: "introduction" %>
-      </div>
-
-      <div class="box-password">
-        <div class="minimum_password"><%= f.label :password %><strong>(6文字以上)</strong></div>
-        <%= f.password_field :password, autocomplete: "new-password" %>
-      </div>
-
-      <div class="box-password">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-      </div>
-
-      <div class="box-login">
-        <div class="sign-up-button"><%= f.submit "新規登録", class: 'btn btn-primary' %></div>
-        <div class="legal-text">
-          続行することで、SHARE WITH の
-          <%= link_to "利用規約", "#" %>
-          および
-          <%= link_to "プライバシー規約", "#" %>
-          に同意するものとみなされます。
+      <div class="box-image">
+        <div class="avator-image">
+          <%= image_tag 'noimage.png', id: 'preview', width: '150px' %>
         </div>
-      </div>
-    <% end %>
+        <%= f.attachment_field :avator_image, id: "myImage" %>
+      </div><br>
+        <!-- プレビュー機能 -->
+        <script>
+          $('#myImage').on('change', function (e) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $("#preview").attr('src', e.target.result);
+            }
+          reader.readAsDataURL(e.target.files[0]);
+            });
+        </script>
 
-    <%#= render "devise/shared/links" %>
+
+          <div class="box-name">
+            <%= f.label :name %><br />
+            <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+          </div>
+
+          <div class="box-email">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+
+          <div class="box-introduction">
+            <%= f.label :introduction %><br />
+            <%= f.text_field :introduction, autofocus: true, autocomplete: "introduction" %>
+          </div>
+
+          <div class="box-password">
+            <div class="minimum_password"><%= f.label :password %><strong>(6文字以上)</strong></div>
+            <%= f.password_field :password, autocomplete: "new-password" %>
+          </div>
+
+          <div class="box-password">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          </div>
+
+          <div class="box-login">
+            <div class="sign-up-button"><%= f.submit "新規登録", class: 'btn btn-primary' %></div>
+            <div class="legal-text">
+              続行することで、SHARE WITH の
+              <%= link_to "利用規約", "#" %>
+              および
+              <%= link_to "プライバシー規約", "#" %>
+              に同意するものとみなされます。
+            </div>
+        <% end %>
+        <%#= render "devise/shared/links" %>
+    </div>
+  </div>
 </div>
