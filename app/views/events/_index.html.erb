@@ -1,47 +1,48 @@
-
 <div class="col-md-10 event_flex">
     <% events.each do |event| %>
-    
         <div class ="event-box">
             <div class="col-md-9">
-                    <div class="event_image"><%= link_to event_path(event) do %>
-                        <%= attachment_image_tag event, :image, :fill, 500, 400, format: 'jpeg' %>
-                    <% end %></div>
-                    タイトル<p class="event_item"><a href ="/events/<%= event.id %>"><%= event.title %></a></p>
-                    日程<p class="event_item"><%= event.event_date %></p>
-                    時間<p class="event_item"><%= event.open_hour %>時<%= event.open_minute %>分〜<%= event.end_hour %>時<%= event.end_minute %>分</p>
-                    内容<p class="event_item"><%= event.body %></p>
-                    募集要項<p class="event_item"><%= event.recruitment %></p>
-            
-                    <p id ="likes_buttons_<%= event.id %>">
-                        <%= render 'favorites/favorites', event: event %>
-                    </p>
-                    <p>
-                        コメント数：
-                            <%= event.comments.count %>
-                    </p>
+                <!-- イベント画像 -->
+                <div class="event_image"><%= link_to event_path(event) do %>
+                    <%= attachment_image_tag event, :image, :fill, 500, 400, format: 'jpeg' %>
+                <% end %></div>
+                <!-- イベント項目 -->
+                <div class="event_head">タイトル</div><p class="event_item"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span><a class="event_row" href ="/events/<%= event.id %>"><%= event.title %></a></p>
+                日程<p class="event_item"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span><%= event.event_date %></p>
+                時間<p class="event_item"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span><%= event.open_hour %>時<%= event.open_minute %>分〜<%= event.end_hour %>時<%= event.end_minute %>分</p>
+                内容<p class="event_item"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span><%= event.body %></p>
+                募集要項<p class="event_item"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span><%= event.recruitment %></p>
+                <!-- いいねボタン -->
+                <p id ="likes_buttons_<%= event.id %>">
+                    <%= render 'favorites/favorites', event: event %>
+                </p>
+                <!-- コメント数 -->
+                <p>
+                    コメント数：
+                    <%= event.comments.count %>
+                </p>
             </div>
         </div>
     <% end %>
 
     <!-- ランキング -->
     <div class="event_ranking">
-            <ul class="list_crown">
-                <% if !@all_ranks.blank? %>
-                <div class="ranking-title"><strong>人気投稿ランキング</strong></div>
-                <% @all_ranks.each.with_index(1) do |rank, i| %>
-                    <li>
-                        <%= link_to event_path(rank) do %>
-                            第<%= i %>位<br>
-                            <%= rank.title %>
-                        <% end %>
-                    </li>
-                    <p>
-                    いいね数：
-                        <%= rank.favorites.count %>
-                    </p><br>
-                <% end %>
-                <% end %>
-            </ul>
+        <ul class="list_crown">
+            <% if !@all_ranks.blank? %>
+            <div class="ranking-title"><strong>人気投稿ランキング</strong></div>
+            <% @all_ranks.each.with_index(1) do |rank, i| %>
+                <li>
+                    <%= link_to event_path(rank) do %>
+                        第<%= i %>位<br>
+                        <%= rank.title %>
+                    <% end %>
+                </li>
+                <p>
+                いいね数：
+                    <%= rank.favorites.count %>
+                </p><br>
+            <% end %>
+            <% end %>
+        </ul>
     </div>
 </div>

@@ -20,8 +20,21 @@
 } 
 
 .event_image {
-    margin-right: 50px;
+    padding-top: 15px;
 }
+
+.event_new_item {
+    margin-top: 30px;
+}
+
+.event_list {
+    font-size: 25px;
+}
+
+.event_head {
+    margin-top: 15px;
+}
+
 
 .main-contents {
     min-height: 1800px;
@@ -34,6 +47,7 @@
 .event_new {
     padding-left: 200px;
     padding-top: -100px;
+    padding-bottom: -100px;
 }
 
 .event-box {
@@ -80,10 +94,10 @@ input[type="text"] {
 
 .event_post {
     font-size: 40px;
-    margin-top: 30px;
-    margin-bottom: 50px;
+    margin-top: 50px;
+    margin-bottom: 10px;
     background-color: rgba(255, 255, 255, .3);
-    width: 30%;
+    width: 50%;
 }
 
 .new_event_left{
@@ -96,16 +110,16 @@ input[type="text"] {
 
 .event_ranking {
     height: 700px;
-    width: 550px;
+    width: 570px;
     background-color: rgba(255, 255, 255, .8);
-    margin-top: 30px
+    margin-top: 30px;
+    margin-right: 18px;
 }
 
 .ranking-title {
     background-color: rgba(255, 255, 255, .3);
-    font-size: 30px;
-    margin-top: 30px;
-    margin-right: 20px;
+    font-size: 40px;
+    padding-bottom: 30px;
 }
 
 .list_crown {
@@ -113,6 +127,7 @@ input[type="text"] {
     background-color: rgba(255, 255, 255, .3);
     font-size: 30px;
     margin-top: 30px;
+    padding-left: 30px;
 }
 
 .event_show {
@@ -133,7 +148,7 @@ input[type="text"] {
 }
 
 .event_show_right {
-    margin-top: 50px;
+    margin-top: 30px;
     margin-left: 50px;
 }
 
@@ -185,10 +200,9 @@ input[type="text"] {
 }
 
 .new_event_submit {
-    position: absolute;
-    bottom: -10px;
-    right: 300px;
-    
+    position: relative;
+    top: 750px;
+    left: 50px;
 }
 
 .comment_destroy{
