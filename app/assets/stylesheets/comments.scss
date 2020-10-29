@@ -1,3 +1,25 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.event_comment {
+    margin-top: 400px;
+}
+
+.comment_content {
+    margin-top: 800px;
+}
+
+.comment_destroy{
+    margin-bottom: 30px;
+}
+
+.comment_button {
+    position: relative;
+    left: 475px;
+}
+
+.event_comment_layout {
+    position: relative;
+    left: 700px;
+    height: 100px;
+}
