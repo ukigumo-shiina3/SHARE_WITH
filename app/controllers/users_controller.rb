@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   
   def index
     @user= current_user
-    @users = User.all.page(params[:page]).per(5).reverse_order
+    @users = User.all.includes(:events, :comments, :favorites, :messages, :entries).page(params[:page]).per(5).reverse_order
     @all_ranks = Event.create_all_ranks
   end
 
