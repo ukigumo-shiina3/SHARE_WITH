@@ -4,18 +4,6 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
 
 
-.home_font {
-    font-family: 'Noto Serif JP', sans-serif;
-    font-size: 20px;
-    background-image: image-url('pc6.jpg');
-    // background-image: url(pc6.jpg);
-    background-size: cover;
-    background-position: top;
-    width: 100%;
-    height: 2000px;
-    background-repeat : repeat
-}
-
 .home_about {
     font-family: 'Noto Serif JP', sans-serif;
     font-size: 20px;
@@ -28,11 +16,30 @@
     background-repeat : repeat
 }
 
+.home_howto {
+    font-family: 'Noto Serif JP', sans-serif;
+    font-size: 20px;
+    background-image: image-url('pc6.jpg');
+    // background-image: url(pc6.jpg);
+    background-size: cover;
+    background-position: top;
+    width: 100%;
+    height: 2500px;
+    background-repeat : repeat
+}
+
 .about_description {
     background-color: rgba(255, 255, 255, .7);
     padding-left: 200px;
     padding-top: 15px;
     height: 2000px;
+}
+
+.howto_description {
+    background-color: rgba(255, 255, 255, .7);
+    padding-left: 200px;
+    padding-top: 15px;
+    height: 2500px;
 }
 
 .about_explanation {
@@ -59,11 +66,6 @@
 
 .howto_explanation_description {
     margin-bottom: 15px;
-}
-
-.howto_description {
-    background-color: rgba(255, 255, 255, .3);
-    margin-top: 150px;
 }
 
 .howto_title {
