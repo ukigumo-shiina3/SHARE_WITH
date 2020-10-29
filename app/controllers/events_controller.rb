@@ -23,7 +23,7 @@ class EventsController < ApplicationController
   def index
     if current_user
       @event = Event.new
-      @events = Event.all.page(params[:page]).per(7).reverse_order
+      @events = Event.all.includes(:favorites, :comments).page(params[:page]).per(7).reverse_order
       @all_ranks = Event.create_all_ranks
       @schedules = Schedule.where(user_id: current_user.id) #JSON形式
     else
@@ -58,7 +58,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
     @event = Event.find(params[:id])
         @event.destroy
         flash[:notice] = "イベントを削除しました。"
