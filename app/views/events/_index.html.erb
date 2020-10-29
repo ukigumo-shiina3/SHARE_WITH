@@ -10,7 +10,6 @@
                 <div class="event_head">タイトル</div><p class="event_item"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span><a class="event_row" href ="/events/<%= event.id %>"><%= event.title %></a></p>
                 日程<p class="event_item"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span><%= event.event_date %></p>
                 時間<p class="event_item"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span><%= event.open_hour %>時<%= event.open_minute %>分〜<%= event.end_hour %>時<%= event.end_minute %>分</p>
-                内容<p class="event_item"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span><%= event.body %></p>
                 募集要項<p class="event_item"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span><%= event.recruitment %></p>
                 <!-- いいねボタン -->
                 <p id ="likes_buttons_<%= event.id %>">
