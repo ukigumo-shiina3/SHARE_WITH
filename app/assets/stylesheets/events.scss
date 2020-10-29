@@ -19,12 +19,17 @@
     background-color: rgba(255, 255, 255, 1);
 } 
 
+.main-contents {
+    min-height: 1800px;
+}
+
 .event_image {
     padding-top: 15px;
 }
 
 .event_new_item {
     margin-top: 30px;
+    margin-left: 70px;
 }
 
 .event_list {
@@ -35,14 +40,11 @@
     margin-top: 15px;
 }
 
-
-.main-contents {
-    min-height: 1800px;
+.event_item {
+    width: 120%;
 }
 
-.event_new_item {
-    margin-left: 70px;
-}
+
 
 .event_new {
     padding-left: 200px;
@@ -167,16 +169,10 @@ input[type="text"] {
     width: 50%;
 }
 
-.event_comment_layout {
-    position: relative;
-    left: 700px;
-    height: 100px;
-}
-
 .event_show_button {
     position: relative;
-    left: 1300px;
-    top: 200px;
+    left: 1200px;
+    bottom: 180px;
 }
 
 .event_save_button {
@@ -205,13 +201,6 @@ input[type="text"] {
     left: 50px;
 }
 
-.comment_destroy{
-    margin-bottom: 30px;
-}
 
-.comment_button {
-    position: relative;
-    left: 475px;
-}
 
 
