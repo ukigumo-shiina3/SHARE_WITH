@@ -1,4 +1,6 @@
 # SHARE WITH
+[sharewith.work_ github.png.zip](https://github.com/ukigumo-shiina3/SHARE_WITH/files/5463054/sharewith.work_.github.png.zip)
+
 
 ## サイト概要
 自身の興味があるイベントを企画、もしくは他の方が作成したイベントに参加し、オンラインでの交流を目的とするサイト
