@@ -8,24 +8,23 @@
         </tr>
     </thead>
 
-    
-        <% users.each do |user| %>
-        <tbody>
-            <tr>
-                <td>
-                <td><%= link_to user_path(user) do %>
-                        <%= attachment_image_tag user, :avator_image, fallback: "noimage.png", size:"100x100" %>
-                    <% end %>
-                </td>
-                <td></td>
-                <td>
-                    <%= link_to user_path(user) do %>
-                        <%= user.name %>
-                    <% end %>
-                </td>
-                <td><%= user.introduction %></td>
-                </td>
-            </tr>
-        <% end %>
+    <% users.each do |user| %>
+    <tbody>
+        <tr>
+            <td>
+            <td><%= link_to user_path(user) do %>
+                    <%= attachment_image_tag user, :avator_image, fallback: "noimage.png", size:"100x100" %>
+                <% end %>
+            </td>
+            <td></td>
+            <td>
+                <%= link_to user_path(user) do %>
+                    <%= user.name %>
+                <% end %>
+            </td>
+            <td><%= user.introduction %></td>
+            </td>
+        </tr>
+    <% end %>
     </tbody>
 </table>

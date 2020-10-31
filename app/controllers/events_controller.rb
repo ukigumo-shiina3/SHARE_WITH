@@ -25,10 +25,8 @@ class EventsController < ApplicationController
       @event = Event.new
       @events = Event.all.includes(:favorites, :comments).page(params[:page]).per(7).reverse_order
       @all_ranks = Event.create_all_ranks
-      @schedules = Schedule.where(user_id: current_user.id) #JSON形式
     else
       @events = Array.new #ログインしてない状態のトップページ表示
-      @schedules = Array.new 
       @all_ranks = Array.new
     end
   end
@@ -42,9 +40,9 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
-        if @event.user_id != current_user.id
-            redirect_to events_path
-        end
+    if @event.user_id != current_user.id
+        redirect_to events_path
+    end
   end
 
   def update
@@ -58,11 +56,10 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    # @user = User.find(params[:id])
     @event = Event.find(params[:id])
-        @event.destroy
-        flash[:notice] = "イベントを削除しました。"
-        redirect_to events_path
+    @event.destroy
+    flash[:notice] = "イベントを削除しました。"
+    redirect_to events_path
   end
 
   def new_guest

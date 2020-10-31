@@ -3,7 +3,7 @@
         <div class="col-sm-5 event_show_left">
             <%= attachment_image_tag @event, :image, :fill, 420, 320, format: 'png' %>
         </div>
-
+        <!-- イベント詳細項目-->
         <div class="col-sm-6 event_show_item">
             <div class="row event_show_right">
                 <div class="row" >
@@ -40,24 +40,25 @@
                 </div>
             </div>
         </div>
-                <div class="event_comment">
-                    <div class="event_comment_layout">
-                        <div id="comment_<%= @event.id %>"><br>
-                            <%= render 'comments/comments', comments: @comments %>
-                        </div>
-                        <%= form_for [@event, @comment] , remote: true do |f| %>
-                            <%= f.text_area :comment,placeholder: " コメントを入力してください",  size: '50x7' %>
-                            <div class="comment_button"><%= f.submit '送信' %></div>
-                        <% end %>
-                    </div>
-
-                    <div class="row ">
-                        <div class="col-lg-7 event_show_button">
-                            <%= link_to 'イベント編集', edit_event_path(@event), class: "btn btn-primary btn-md" %>
-                            <%= link_to 'イベント削除', event_path(@event.id), method: :delete, "data-confirm" =>"本当に削除しますか？", class: "btn btn-danger btn-md"%>
-                        </div>
-                    </div>
-                <div>
+        <!-- コメント -->
+        <div class="event_comment">
+            <div class="event_comment_layout">
+                <div id="comment_<%= @event.id %>"><br>
+                    <%= render 'comments/comments', comments: @comments %>
+                </div>
+                <%= form_for [@event, @comment] , remote: true do |f| %>
+                    <%= f.text_area :comment,placeholder: " コメントを入力してください",  size: '50x7' %>
+                    <div class="comment_button"><%= f.submit '送信' %></div>
+                <% end %>
+            </div>
+            <!-- 編集、削除ボタン -->
+            <div class="row ">
+                <div class="col-lg-7 event_show_button">
+                    <%= link_to 'イベント編集', edit_event_path(@event), class: "btn btn-primary btn-md" %>
+                    <%= link_to 'イベント削除', event_path(@event.id), method: :delete, "data-confirm" =>"本当に削除しますか？", class: "btn btn-danger btn-md"%>
+                </div>
+            </div>
+        <div>
 </div>
 
 

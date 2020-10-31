@@ -1,43 +1,45 @@
 <div class="container user_all">
 	<div class="row user_show">
+        <!-- ユーザー詳細 -->
         <h2 class="user_mypage"><%= @user.name %>さんの詳細ページ</h2>
-            <div class="col-sm-5 user_show_image">
-                    <%= attachment_image_tag @user, :avator_image, :fill, 350, 250, format: 'png'%></div>
-            
-            <div class= "col-sm-7 user_show_item">
-                <div class="row" >
-					<div class="col-xs-4">ユーザー名</div>
-                    <div class="col-xs-6"><%= @user.name %></div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-4 user_introduction">自己紹介</div>
-                    <div class="col-xs-6"><%= @user.introduction %></div>
-                </div>
+        <div class="col-sm-5 user_show_image">
+            <%= attachment_image_tag @user, :avator_image, :fill, 350, 250, format: 'png'%>
+        </div>
+        <div class="col-sm-7 user_show_item">
+            <div class="row" >
+                <div class="col-xs-4">ユーザー名</div>
+                <div class="col-xs-6"><%= @user.name %></div>
             </div>
+            <div class="row">
+                <div class="col-xs-4 user_introduction">自己紹介</div>
+                <div class="col-xs-6"><%= @user.introduction %></div>
+            </div>
+        </div>
     </div>
-
+    
+    <!-- チャット -->
     <div class="row">
         <div class= "col-sm-3 user_show_dm">
-                <% unless @user.id == current_user.id %>
-                    <% if @isRoom == true %> 
-                    <!-- チャットルーム作成済みの場合-->
-                        <a href="/rooms/<%= @roomId %>" class="btn btn-success btn-lg chat_button1">チャットへ</a>
-                    <% else %>
-                    <!-- チャットルーム作成されていない場合-->
-                        <%= form_for @room do |f| %>
-                            <%= fields_for @entry do |e| %>
-                                <%= e.hidden_field :user_id, value: @user.id %>
-                            <% end %>
-                            <div class="start_chat"> 
-                                <%= f.submit "チャットをする", class:"btn btn-success btn-lg chat_button2"%>
-                            </div>
+            <% unless @user.id == current_user.id %>
+                <% if @isRoom == true %> 
+                <!-- チャットルーム作成済みの場合-->
+                    <a href="/rooms/<%= @roomId %>" class="btn btn-success btn-lg chat_button1">チャットへ</a>
+                <% else %>
+                <!-- チャットルーム作成されていない場合-->
+                    <%= form_for @room do |f| %>
+                        <%= fields_for @entry do |e| %>
+                            <%= e.hidden_field :user_id, value: @user.id %>
                         <% end %>
+                        <div class="start_chat"> 
+                            <%= f.submit "チャットをする", class:"btn btn-success btn-lg chat_button2"%>
+                        </div>
                     <% end %>
                 <% end %>
+            <% end %>
         </div>
     </div>
 </div>
-
+    <!-- 編集、削除ボタン -->
     <div class="user_button">
         <%= link_to "編集する" ,edit_user_path(@user), class: "btn btn-primary btn-lg " %>
         <%= link_to '削除する', user_path(@user.id), method: :delete, "data-confirm" =>"本当に削除しますか？", class: "btn btn-danger btn-lg"%>

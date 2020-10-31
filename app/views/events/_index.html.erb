@@ -29,18 +29,18 @@
         <ul class="list_crown">
             <% if !@all_ranks.blank? %>
             <div class="ranking-title"><strong>人気投稿ランキング</strong></div>
-            <% @all_ranks.each.with_index(1) do |rank, i| %>
-                <li>
-                    <%= link_to event_path(rank) do %>
-                        第<%= i %>位<br>
-                        <%= rank.title %>
-                    <% end %>
-                </li>
-                <p>
-                いいね数：
-                    <%= rank.favorites.count %>
-                </p><br>
-            <% end %>
+                <% @all_ranks.each.with_index(1) do |rank, i| %>
+                    <li>
+                        <%= link_to event_path(rank) do %>
+                            第<%= i %>位<br>
+                            <%= rank.title %>
+                        <% end %>
+                    </li>
+                    <p>
+                    いいね数：
+                        <%= rank.favorites.count %>
+                    </p><br>
+                <% end %>
             <% end %>
         </ul>
     </div>
