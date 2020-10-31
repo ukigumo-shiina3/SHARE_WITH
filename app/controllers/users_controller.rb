@@ -10,8 +10,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @schedules = Schedule.where(user_id: @user.id)
-    @schedule = Schedule.new
     @currentUserEntry=Entry.where(user_id: current_user.id)
     @userEntry=Entry.where(user_id: @user.id)  #「チャットへ」を押されたユーザー
     

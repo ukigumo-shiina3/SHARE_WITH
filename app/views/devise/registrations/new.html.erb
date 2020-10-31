@@ -5,12 +5,12 @@
         <%= render "devise/shared/error_messages", resource: resource %>
         <h1>新規登録</h1>
 
-      <div class="box-image">
-        <div class="avator-image">
-          <%= image_tag 'noimage.png', id: 'preview', width: '150px' %>
-        </div>
-        <%= f.attachment_field :avator_image, id: "myImage" %>
-      </div><br>
+        <div class="box-image">
+          <div class="avator-image">
+            <%= image_tag 'noimage.png', id: 'preview', width: '150px' %>
+          </div>
+          <%= f.attachment_field :avator_image, id: "myImage" %>
+        </div><br>
         <!-- プレビュー機能 -->
         <script>
           $('#myImage').on('change', function (e) {
@@ -21,7 +21,6 @@
           reader.readAsDataURL(e.target.files[0]);
             });
         </script>
-
 
           <div class="box-name">
             <%= f.label :name %><br />
@@ -50,15 +49,15 @@
 
           <div class="box-login">
             <div class="sign-up-button"><%= f.submit "新規登録", class: 'btn btn-primary' %></div>
-            <div class="legal-text">
-              続行することで、SHARE WITH の
-              <%= link_to "利用規約", "#" %>
-              および
-              <%= link_to "プライバシー規約", "#" %>
-              に同意するものとみなされます。
-            </div>
+              <div class="legal-text">
+                続行することで、SHARE WITH の
+                <%= link_to "利用規約", "#" %>
+                および
+                <%= link_to "プライバシー規約", "#" %>
+                に同意するものとみなされます。
+              </div>
+          </div>
         <% end %>
-        <%#= render "devise/shared/links" %>
     </div>
   </div>
 </div>

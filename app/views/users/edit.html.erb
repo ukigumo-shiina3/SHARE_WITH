@@ -1,6 +1,6 @@
 <div class="container user_all">
 	<div class="row user_edit">
-            <!-- エラー文 -->
+        <!-- エラー表示 -->
 		<% if @user.errors.any? %>
             <h2><%= @user.errors.count %>件のエラーが発生しました。</h2>
             <ul>
@@ -9,7 +9,7 @@
                 <% end %>
             </ul>
         <% end %>
-
+        <!-- ユーザー編集 -->
         <h2 class="user_edit_profile"><%= @user.name %>さんのユーザー編集</h2>
         <%= form_for(@user, url:"/users/#{@user.id}") do |f| %>
             <div class="row form_interval ">
@@ -51,6 +51,5 @@
                 <%= f.submit "変更を保存", class:"btn btn-primary" %>
             </div>
         </div>
-        
 		<% end %>
 </div>

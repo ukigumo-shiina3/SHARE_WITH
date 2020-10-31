@@ -1,9 +1,9 @@
 <div class="container event_all">
-        <div class="row event_edit ">
-            <div class="row event_edit_title">イベント編集</div>
+    <div class="row event_edit ">
+        <div class="row event_edit_title">イベント編集</div>
             <%= form_with model:@event, url: event_path,method: :patch do |f| %>
                 <div class="col-lg-5 event-image" >
-                        <%= attachment_image_tag @event, :image, fallback: "noimage.png", size:"400x300" %>
+                    <%= attachment_image_tag @event, :image, fallback: "noimage.png", size:"400x300" %>
                     <%= f.attachment_field :image %>
                 </div>
                 <div class="col-lg-3 event_new_item">

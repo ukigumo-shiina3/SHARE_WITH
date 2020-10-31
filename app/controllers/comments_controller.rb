@@ -12,7 +12,6 @@ class CommentsController < ApplicationController
 
     def destroy
         @event = Event.find(params[:event_id])
-        # binding.pry
         comment = Comment.find(params[:id])
         comment.destroy
         @comments = @event.comments
