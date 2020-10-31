@@ -24,9 +24,11 @@ sharewith.work_ github.png.zip](https://github.com/ukigumo-shiina3/SHARE_WITH/fi
 Zoom、Remoを用いて主に交流
 
 ## 設計書
-ER図　file:///Users/tanakadaisuke/Documents/share_with.html
+ER図　
+file:///Users/tanakadaisuke/Documents/share_with.html
 
-テーブル定義書　https://docs.google.com/spreadsheets/d/1TB3u2Pd1hpfFWnhIB01-cXJ8ct_WCiQb-Xsxfd7E7Bk/edit?usp=sharing
+テーブル定義書　
+https://docs.google.com/spreadsheets/d/1TB3u2Pd1hpfFWnhIB01-cXJ8ct_WCiQb-Xsxfd7E7Bk/edit?usp=sharing
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1XzVwotOfy9fW7O2e2FiZW3bRAsxIthjeY_sj-DWoJfM/edit?usp=sharing
