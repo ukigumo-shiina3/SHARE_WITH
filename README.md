@@ -1,6 +1,5 @@
 # SHARE WITH
-ランディングページのイメージになります。
-sharewith.work_ github.png.zip](https://github.com/ukigumo-shiina3/SHARE_WITH/files/5463054/sharewith.work_.github.png.zip)
+<img width="475" alt="share_with" src="https://user-images.githubusercontent.com/67767613/97793975-d9092900-1c36-11eb-9701-efad669d2ecc.png">
 
 
 ## サイト概要
