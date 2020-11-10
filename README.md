@@ -38,3 +38,9 @@ https://docs.google.com/spreadsheets/d/1XzVwotOfy9fW7O2e2FiZW3bRAsxIthjeY_sj-DWo
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - 仮想環境：Vagrant,VirtualBox
+
+## 使用素材
+- Pixabay :https://pixabay.com/ja/
+- Pexels :https://www.pexels.com/ja-jp/
+- O-DAN :https://o-dan.net/ja/
+- DesignEvo :https://www.designevo.com/
