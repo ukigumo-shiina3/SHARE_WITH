@@ -4,13 +4,39 @@
     <title>SHARE WITH</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+
   </head>
 
-  <body>
-      <%= render partial: 'layouts/header' %>
-      <%= yield %>
+  <body>  
+    <header class="navbar">
+      <nav class="nav navbar-nav navbar-left">
+          <%= link_to root_path do %>
+              <p class="logo"><%= image_tag "logo4.png" %></p>
+          <% end %>
+      </nav>
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+            <%= render partial: 'layouts/header' %>
+        </ul>
+            <%= render partial: 'layouts/hamberger' %>
+      </nav> 
+    </header>
+
+    <%= yield %>
+
+    <script type="text/javascript"  src="/javascripts/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+          $('.menu-btn').on('click', function(){
+              $('.menu').toggleClass('is-active');
+          });
+      }());
+    </script>
   </body>
 </html>

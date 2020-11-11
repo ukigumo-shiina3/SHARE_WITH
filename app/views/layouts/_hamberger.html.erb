@@ -1,0 +1,89 @@
+<div class="menu-btn">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+</div>
+<div class="menu">
+    <% if user_signed_in? %>
+    <!-- ログイン後ヘッダー --> 
+    <div class="menu__item">
+        <%= link_to "Home", events_path %>
+    </div>
+    <div class="menu__item">
+        <%= link_to "About", home_about_path %>
+    </div>
+    <div class="menu__item">
+        <%= link_to "How to", home_howto_path %>
+    </div>
+    <div class="menu__item">
+        <%= link_to "User", users_path %>
+    </div>
+    <div class="menu__item">
+        <%= link_to "My page", user_path(current_user) %>
+    </div>
+    <div class="menu__item">
+        <%= link_to "Event Post", new_event_path%>
+    </div>
+    <div class="menu__item">
+        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+    </div>
+    <div class="menu__item">
+        <a href="#" data-toggle="modal" data-target="#sampleModal">Search</a>
+    </div>
+    
+    <!-- モーダルダイアログ -->
+    <div class="modal fade" id="sampleModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+                    <h4 class="modal-title">タイトル</h4>
+                </div>
+                    <div class="modal-body">
+                        <div class='main-contents'>
+                            <div class="search-form">
+                                <%= form_tag(search_path, method: :get) do %>
+                                    <%= text_field_tag 'search[content]' %>
+                                <%= select_tag 'search[model]', options_for_select({ "User" => "user", "Event" => "event" }) %>
+                                <%= select_tag 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }) %>
+                                <%= date_field_tag 'search[event_begin_date]',
+                                Date.today, use_month_numbers: true %>
+                                〜
+                                <%= date_field_tag 'search[event_finish_date]',
+                                Date.today, use_month_numbers: true, min: Date.new(2020, 11, 01)  %>
+                                <%= submit_tag '検索', class: "btn btn-primary " %>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                    <button type="button" class="btn btn-primary btn-lg">ボタン</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% else %>
+
+    <!-- ログイン前ヘッダー -->
+    <div class="menu__item">
+        <%= link_to "Home", events_path %>
+    </div>
+    <div class="menu__item">
+        <%= link_to "About", home_about_path %>
+    </div>
+    <div class="menu__item">
+        <%= link_to "Howto", home_howto_path %>
+    </div>
+    <div class="menu__item">
+        <%= link_to "User", users_path %>
+    </div>
+    <div class="menu__item">
+        <%= link_to "Sign up", new_user_registration_path %>
+    </div>
+    <div class="menu__item">
+        <%= link_to "Login", new_user_session_path %>
+    </div>
+    <div class="menu__item">
+        <%= link_to "Test login", events_guest_sign_in_path, method: :post %>
+    </div>
+    <% end %>
+</div>
