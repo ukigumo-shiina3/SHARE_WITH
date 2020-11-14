@@ -1,27 +1,26 @@
 class UsersController < ApplicationController
-
   before_action :authenticate_user!
-  
+
   def index
-    @user= current_user
+    @user = current_user
     @users = User.all.includes(:events, :comments, :favorites, :messages, :entries).page(params[:page]).per(5).reverse_order
     @all_ranks = Event.create_all_ranks
   end
 
   def show
     @user = User.find(params[:id])
-    @currentUserEntry=Entry.where(user_id: current_user.id)
-    @userEntry=Entry.where(user_id: @user.id)  #「チャットへ」を押されたユーザー
-    
+    @currentUserEntry = Entry.where(user_id: current_user.id)
+    @userEntry = Entry.where(user_id: @user.id) # 「チャットへ」を押されたユーザー
+
     unless @user.id == current_user.id
       @currentUserEntry.each do |cu|
         @userEntry.each do |u|
-        #roomsが作成されている場合と作成されていない場合の条件分岐
-          if cu.room_id == u.room_id then 
-            @isRoom = true  #trueの時は、チャットへボタンを出現させ、すでに作成されたチャットへと移行
-            #falseの時は、Roomを作成
-            @roomId = cu.room_id  #すでに作成されているroom_idを特定
-          end
+          # roomsが作成されている場合と作成されていない場合の条件分岐
+          next unless cu.room_id == u.room_id
+
+          @isRoom = true # trueの時は、チャットへボタンを出現させ、すでに作成されたチャットへと移行
+          # falseの時は、Roomを作成
+          @roomId = cu.room_id # すでに作成されているroom_idを特定
         end
       end
       if @isRoom
@@ -34,31 +33,30 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    if @user.id != current_user.id
-        redirect_to user_path(current_user.id)
-    end
+    redirect_to user_path(current_user.id) if @user.id != current_user.id
   end
-  
+
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-        flash[:notice] = "更新に成功しました。"
-        redirect_to user_path
+      flash[:notice] = '更新に成功しました。'
+      redirect_to user_path
     else
-        render:edit
+      render :edit
     end
   end
 
   def destroy
     @user = User.find(params[:id])
     if @user.id != current_user.id
-        redirect_to user_path(current_user.id)
-        flash[:notice] = "削除に成功しました。"
+      redirect_to user_path(current_user.id)
+      flash[:notice] = '削除に成功しました。'
     end
   end
 
   private
+
   def user_params
-      params.require(:user).permit(:name, :introduction, :avator_image)  
+    params.require(:user).permit(:name, :introduction, :avator_image)
   end
 end
