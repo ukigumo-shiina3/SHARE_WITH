@@ -9,6 +9,27 @@
     background-position: top;
 }
 
+.main-contents {
+    min-height: 1800px;
+}
+
+.events_index {
+    font-size: 50px;
+    font-family: 'Kaushan Script', cursive;
+    color: #337ab7;
+    margin: 100px 0px 50px 250px;
+    background-color: rgba(255, 255, 255, .9);
+    width: 27%;
+    position:  relative;   
+}
+
+.event_flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-left: 150px;
+}
+
 .event_all {
     height: 1500px;
     transform: translateZ(0); 
@@ -16,23 +37,18 @@
     background-position: top;
     font-size: 20px;  
     background-color: rgba(255, 255, 255, 1);
+    margin-top: 30px;
 } 
 
-.main-contents {
-    min-height: 1800px;
+.event_box {
+    float: left;
+    background-color: rgba(255, 255, 255, .8);
+    padding: 20px;
+    margin: 20px;
 }
 
 .event_image {
     padding-top: 15px;
-}
-
-.event_new_item {
-    margin-top: 30px;
-    margin-left: 70px;
-}
-
-.event_list {
-    font-size: 25px;
 }
 
 .event_head {
@@ -43,82 +59,13 @@
     width: 80%;
 }
 
-.event_new {
-    padding-left: 200px;
-    padding-top: -100px;
-    padding-bottom: -100px;
-}
-
-.event-box {
-    float: left;
-    background-color: rgba(255, 255, 255, .8);
-    padding: 20px;
-    margin: 20px;
-}
-
-input[type="text"] {
-    width: 500px;
-    height: 40px;
-}
-
-.event_description {
-    margin-top: 20px;
-}
-
-.events-index {
-    font-size: 50px;
-    font-family: 'Kaushan Script', cursive;
-    color: #337ab7;
-    margin: 50px 0px 50px 250px;
-    background-color: rgba(255, 255, 255, .9);
-    width: 27%;
-    position:  relative;   
-}
-
-.event_content {
-    float: left;
-    width: 50%;
-}
-
-.event_flex {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-left: 150px;
-}
-
-.event_paginate {
-    text-align: center;
-}
-
-.event_post {
-    font-size: 40px;
-    margin-top: 50px;
-    margin-bottom: 10px;
-    background-color: rgba(255, 255, 255, .3);
-    width: 50%;
-}
-
-.new_event_left{
-    margin: 30px 0 0 0z;
-}
-
-.form-interval {
-    margin-bottom: 20px;
-}
 
 .event_ranking {
-    height: 810px;
+    height: 838px;
     width: 570px;
     background-color: rgba(255, 255, 255, .8);
     margin-top: 20px;
     margin-right: 18px;
-}
-
-.ranking-title {
-    background-color: rgba(255, 255, 255, .3);
-    font-size: 40px;
-    padding-bottom: 30px;
 }
 
 .list_crown {
@@ -129,8 +76,48 @@ input[type="text"] {
     padding-left: 30px;
 }
 
-.event_show {
-    margin-left: 30px;
+.ranking-title {
+    background-color: rgba(255, 255, 255, .3);
+    font-size: 40px;
+    padding-bottom: 30px;
+}
+
+.event_paginate {
+    text-align: center;
+}
+
+.event_new {
+    padding-left: 200px;
+    padding-top: -100px;
+    padding-bottom: -100px;
+}
+
+.event_post {
+    font-size: 40px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, .3);
+    width: 50%;
+}
+
+.event_new_item {
+    margin-top: 30px;
+    margin-left: 70px;
+}
+
+.new_event_submit {
+    position: relative;
+    top: 750px;
+    left: 50px;
+}
+
+.form-interval {
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 500px;
+    height: 40px;
 }
 
 .event_show_title {
@@ -146,11 +133,6 @@ input[type="text"] {
     left: 150px;
 }
 
-.event_show_right {
-    margin-top: 30px;
-    margin-left: 50px;
-}
-
 .event_show_item {
     background-color: rgba(255, 255, 255, .5);
     margin: 0 0px 250px 0px;
@@ -158,11 +140,17 @@ input[type="text"] {
     height: 100px;
 }
 
+.event_show_right {
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
 .event_show_heading {
     margin-bottom: 5px;
 }
 
-.col-xs-4 {
+.event_content {
+    float: left;
     width: 50%;
 }
 
@@ -170,12 +158,6 @@ input[type="text"] {
     position: relative;
     left: 1200px;
     bottom: 180px;
-}
-
-.event_save_button {
-    position: relative;
-    top: 30px;
-    left: 270px;
 }
 
 .event_edit {
@@ -192,12 +174,34 @@ input[type="text"] {
     width: 25%;
 }
 
-.new_event_submit {
+.event_save_button {
     position: relative;
-    top: 750px;
-    left: 50px;
+    top: 30px;
+    left: 270px;
 }
 
+@media screen and (max-width:1600px) {
+
+    // .event_flex {
+    //     // display: block;
+    //     // flex-direction: column;
+    //     width: 100%;
+    // }
+
+    .event_box {
+        // display: block;
+        // flex-direction: column;
+        width: 100%;
+    }
+
+    .events_index {
+        font-size: 40px;
+    }
+
+    .event_ranking {
+        margin-right: 400px;
+
+    }
 
 
-
+}

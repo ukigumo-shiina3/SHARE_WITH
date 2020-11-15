@@ -38,6 +38,10 @@ header {
     bottom: 11px;
 }
 
+.navbar {
+    margin-bottom: -20px;
+}
+
 .nav {
     position: relative;
     top: 10px;
@@ -143,6 +147,7 @@ input[name="event[title]"] {
         text-align: center;
         color: #fff;
         box-sizing: border-box;
+        font-size: 30px;
     }
 
     /*----------------------------
