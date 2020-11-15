@@ -1,9 +1,8 @@
 class FavoritesController < ApplicationController
-
   before_action :authenticate_user!
-  
+
   def create
-    @event = Event.find(params[:event_id]) 
+    @event = Event.find(params[:event_id])
     favorite = current_user.favorites.new(event_id: @event.id)
     favorite.save
   end

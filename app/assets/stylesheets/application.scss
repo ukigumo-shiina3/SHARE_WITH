@@ -17,40 +17,46 @@
 @import "bootstrap";
 @import "font-awesome";
 
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 header {
     height: 90px;
     background-color: moccasin;
     font-family: 'Kaushan Script', cursive;
     font-size: 20px;
-    margin: 0 !important;
 }
 
 .logo img {
     position: relative;
     height: 88px;
     width: 100px;
-    left: 200px
+    left: 670px;
+    bottom: 11px;
 }
 
 .nav {
-    margin-right: 100px;
+    position: relative;
+    top: 10px;
+    right: 400px; 
 }
 
-.navbar .nav > li {
-    margin-top: 20px;
-    margin-right: 5px;
+.navbar-right {
+    justify-content: flex-end
 }
 
 .welcome {
+    margin-right: 160px;
+    margin-top: 10px;
+}
+
+.navbar .nav > li {
     position: relative;
-    right: 200px;
-    top: 2px;
+    top: 10px;
+    left: 300px;
 }
 
 .pagination>li>a {          
@@ -64,7 +70,7 @@ header {
 }
 
 .pagination>li>a:hover {        
-border-radius: 15px;    
+    border-radius: 15px;    
 }
 
 .search-form {
@@ -91,6 +97,71 @@ input[name="event[title]"] {
     font-size: 20px;
 }
 
-.welcome {
-    padding-top: 10px;
+.menu-btn, .menu {
+    display: none;
 }
+
+@media screen and (max-width:1600px) {
+    /*----------------------------
+    * メニュー開閉ボタン
+    *----------------------------*/
+    .menu-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 2;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #333;
+        color: #fff;
+    }
+
+    /*----------------------------
+    * メニュー本体
+    *----------------------------*/
+    .menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: moccasin;
+    }
+
+    .menu__item {
+        width: 100%;
+        height: auto;
+        padding: .5em 1em;
+        text-align: center;
+        color: #fff;
+        box-sizing: border-box;
+    }
+
+    /*----------------------------
+    * アニメーション部分
+    *----------------------------*/
+
+    /* アニメーション前のメニューの状態 */
+    .menu {
+        transform-origin: top left;
+        transform: rotateZ(-90deg);
+        transition: all .3s ease;
+    }
+    /* アニメーション後のメニューの状態 */
+    .menu.is-active {
+        transform: rotateZ(0deg);
+    }
+
+    .navbar-right {
+        display: none;
+    }
+}
+

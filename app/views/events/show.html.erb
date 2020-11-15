@@ -54,8 +54,12 @@
             <!-- 編集、削除ボタン -->
             <div class="row ">
                 <div class="col-lg-7 event_show_button">
-                    <%= link_to 'イベント編集', edit_event_path(@event), class: "btn btn-primary btn-md" %>
-                    <%= link_to 'イベント削除', event_path(@event.id), method: :delete, "data-confirm" =>"本当に削除しますか？", class: "btn btn-danger btn-md"%>
+                    <%if current_user.id == @event.user.id %>
+                        <%= link_to 'イベント編集', edit_event_path(@event), class: "btn btn-primary btn-md" %>
+                    <% end %>
+                    <%if current_user.id == @event.user.id %>
+                        <%= link_to 'イベント削除', event_path(@event.id), method: :delete, "data-confirm" =>"本当に削除しますか？", class: "btn btn-danger btn-md"%>
+                    <% end %>
                 </div>
             </div>
         <div>
