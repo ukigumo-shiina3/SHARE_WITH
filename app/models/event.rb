@@ -15,7 +15,10 @@ class Event < ApplicationRecord
     Event.find(Favorite.group(:event_id).order(Arel.sql('count(event_id) desc')).limit(3).pluck(:event_id))
   end
 
-  validates :title, :body, :recruitment, :event_date, :open_hour, :open_minute, :end_hour, :end_minute, presence: true
+  validates :title, length: { in: 2..30 },  presence: true
+  validates :body,  length: { in: 2..500 },  presence: true
+  validates :recruitment,  length: { in: 2..100 },  presence: true
+  validates :event_date, :open_hour, :open_minute, :end_hour, :end_minute, presence: true
   validate :posts_count_must_be_within_limit
 
   def posts_count_must_be_within_limit
