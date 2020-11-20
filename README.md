@@ -29,6 +29,9 @@ https://drive.google.com/file/d/1ALNutLriwic0FZ8T2uGFi899juO-CwRZ/view?usp=shari
 テーブル定義書　
 https://docs.google.com/spreadsheets/d/1TB3u2Pd1hpfFWnhIB01-cXJ8ct_WCiQb-Xsxfd7E7Bk/edit?usp=sharing
 
+WBS
+https://docs.google.com/spreadsheets/d/1OTuUS9ZNVvUiQ8QO00U1qWygrG73XmsaAZJOmxV11ho/edit?usp=sharing
+
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1XzVwotOfy9fW7O2e2FiZW3bRAsxIthjeY_sj-DWoJfM/edit?usp=sharing
 
