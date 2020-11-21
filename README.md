@@ -1,5 +1,5 @@
 # SHARE WITH
-<img width="475" alt="share_with" src="https://user-images.githubusercontent.com/67767613/97793975-d9092900-1c36-11eb-9701-efad669d2ecc.png">
+![sharewith work_ ](https://user-images.githubusercontent.com/67767613/99877016-7bb53600-2c3e-11eb-8fb9-f80193c46551.png)
 
 
 ## サイト概要
