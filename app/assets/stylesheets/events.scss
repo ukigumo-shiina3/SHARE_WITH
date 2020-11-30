@@ -19,8 +19,9 @@
     color: #337ab7;
     margin: 100px 0px 50px 250px;
     background-color: rgba(255, 255, 255, .9);
-    width: 27%;
-    position:  relative;   
+    width: 24%;
+    position:  relative; 
+    left: 10px;  
 }
 
 .event_flex {
@@ -61,7 +62,7 @@
 
 
 .event_ranking {
-    height: 838px;
+    height: 810px;
     width: 570px;
     background-color: rgba(255, 255, 255, .8);
     margin-top: 20px;
@@ -180,28 +181,96 @@ input[type="text"] {
     left: 270px;
 }
 
+/* タブレットサイズのレスポンシブ対応 */
 @media screen and (max-width:1600px) {
+    .events {
+        background-size: cover;
+        width: 101.4%;
+        margin: 0 auto;
+    }
 
-    // .event_flex {
-    //     // display: block;
-    //     // flex-direction: column;
-    //     width: 100%;
-    // }
-
-    .event_box {
-        // display: block;
-        // flex-direction: column;
-        width: 100%;
+    .event_flex {
+        flex-direction : column;
+        width: 101.4%;
     }
 
     .events_index {
-        font-size: 40px;
+        width: 350px;
+        font-size: 50px;
+        margin: 0 auto;
+        margin-top: 70px;
+        position: relative;
+        right: 30px;
+    }
+
+    .event_box {
+        width: 573px;
+        margin: 30px auto;
     }
 
     .event_ranking {
-        margin-right: 400px;
+        margin: 50px auto;
+    }
+}
 
+/* スマホサイズのレスポンシブ対応 */
+@media screen and (max-width:1005px) {
+    .events {
+        position: relative;
+        top: 20px;
+        left: 15px;
     }
 
+    .event_flex {
+        margin: 0 auto;
+    }
 
+    .events_index {
+        font-size: 25px;
+        margin-top: 30px;
+        width: 220px;
+    }
+
+    .event_box {
+        width: 70%;
+        width: 300px;
+        font-size: 1rem;
+    }
+
+    .event_box_content {
+        width: 50%;
+    }
+    
+    .event_post_image {
+        height: 150px;
+        width: 230px;
+    }
+
+    .event_ranking {
+        margin: 0px auto;
+        height: 310px;
+        width: 300px;
+        font-size: 2rem;
+        margin-bottom: 100px;
+    }
+
+    .ranking-title {
+        font-size: 1.5rem;
+    }
+
+    .list_crown {
+        font-size: 1rem;
+    }
+
+    .event_item {
+        width: 150%;
+    }
+
+    .event_ranking {
+        margin: 40px auto;
+    }
+
+    .event_paginate {
+        margin-top: 50px;
+    }
 }
