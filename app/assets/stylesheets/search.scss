@@ -1,15 +1,15 @@
 // Place all the styles related to the Search controller here.
 // They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-.event_flex {
-    font-size: 20px;
+// You can use Sass (SCSS) here: http://sass-lang.com
+
+.search_event_result {
+    padding-top: 100px;
+    margin-left: 100px;
+    padding-bottom: 50px;
+    text-align: center;
 }
 
-.table-inverse {
-    font-size: 20px;
-    margin-top: 50px;
-}
-
-.search_result {
-    margin-top: 50px;
+.search_user_result {
+    padding-top: 50px;
+    text-align: center;
 }
