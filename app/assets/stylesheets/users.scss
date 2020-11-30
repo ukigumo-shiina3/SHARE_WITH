@@ -36,17 +36,6 @@
     margin-left: 150px;
 }
 
-.go_chat {
-    position: relative;
-    bottom: 200px;
-}
-
-.start_chat {
-    position: relative;
-    bottom: 200px;
-    right: 38px;
-}
-
 .user_dm_index {
     background-color: white;
 }
@@ -96,15 +85,16 @@
     margin-bottom: 40px;
 }
 
-.chat_button1 {
+.go_chat {
     position: relative;
-    bottom: 200px;
+    bottom: 250px;
+    left: 180px;
 }
 
-.chat_button2 {
+.start_chat {
     position: relative;
-    bottom: 200px;
-    right: 33px;
+    bottom: 250px;
+    left: 144px;
 }
 
 .user_button {
