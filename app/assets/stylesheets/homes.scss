@@ -65,6 +65,7 @@
     padding-top: 50px;
 }
 
+/* タブレットサイズのレスポンシブ対応 */
 @media screen and (max-width:1600px) {
     .about_description, .howto_description {
         padding-left: 40px;
@@ -83,6 +84,7 @@
     }
 }
 
+/* スマホサイズのレスポンシブ対応 */
 @media screen and (max-width:600px) {
     .about_description,  .howto_description  {
         padding-left: 5px;

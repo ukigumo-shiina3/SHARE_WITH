@@ -28,13 +28,14 @@ header {
     background-color: moccasin;
     font-family: 'Kaushan Script', cursive;
     font-size: 20px;
+    width: 100%;
 }
 
 .logo img {
     position: relative;
     height: 88px;
     width: 100px;
-    left: 670px;
+    left: 470px;
     bottom: 11px;
 }
 
@@ -105,6 +106,7 @@ input[name="event[title]"] {
     display: none;
 }
 
+/* タブレットサイズのレスポンシブ対応 */
 @media screen and (max-width:1600px) {
     /*----------------------------
     * メニュー開閉ボタン
@@ -170,3 +172,10 @@ input[name="event[title]"] {
     }
 }
 
+/* スマホサイズのレスポンシブ対応 */
+@media screen and (max-width:800px) {
+    .logo img {
+        position: relative;
+        bottom: 17px;
+    }
+}
