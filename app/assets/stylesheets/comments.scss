@@ -11,15 +11,22 @@
 
 .comment_destroy{
     margin-bottom: 30px;
+    position: relative;
+    left: 100px;
 }
 
 .comment_button {
     position: relative;
-    left: 475px;
+    left: 455px;
 }
 
 .event_comment_layout {
     position: relative;
     left: 700px;
     height: 100px;
+}
+
+.comment_form {
+    position: relative;
+    left: 110px;
 }
