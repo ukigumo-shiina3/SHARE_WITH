@@ -27,8 +27,24 @@
     margin-left: 200px;
 }
 
+.table-inverse {
+    font-size: 20px;
+    margin-top: 50px;
+}
+
 .user_dm {
     margin-left: 150px;
+}
+
+.go_chat {
+    position: relative;
+    bottom: 200px;
+}
+
+.start_chat {
+    position: relative;
+    bottom: 200px;
+    right: 38px;
 }
 
 .user_dm_index {
@@ -93,6 +109,6 @@
 
 .user_button {
     position: relative;
-    bottom: 700px;
-    left: 1020px;
+    bottom: 750px;
+    left: 1200px;
 }

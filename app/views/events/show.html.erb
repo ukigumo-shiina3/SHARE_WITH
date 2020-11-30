@@ -47,8 +47,8 @@
                     <%= render 'comments/comments', comments: @comments %>
                 </div>
                 <%= form_for [@event, @comment] , remote: true do |f| %>
-                    <%= f.text_area :comment,placeholder: " コメントを入力してください",  size: '50x7' %>
-                    <div class="comment_button"><%= f.submit '送信' %></div>
+                    <%= f.text_area :comment,placeholder: " コメントを入力してください",  size: '50x7', class:"comment_form" %>
+                    <div class="comment_button"><%= f.submit '送信', class: "btn_gradient_orange btn-md"   %></div>
                 <% end %>
             </div>
             <!-- 編集、削除ボタン -->
@@ -58,7 +58,7 @@
                         <%= link_to 'イベント編集', edit_event_path(@event), class: "btn btn-primary btn-md" %>
                     <% end %>
                     <%if current_user.id == @event.user.id %>
-                        <%= link_to 'イベント削除', event_path(@event.id), method: :delete, "data-confirm" =>"本当に削除しますか？", class: "btn btn-danger btn-md"%>
+                        <%= link_to 'イベント削除', event_path(@event.id), method: :delete, "data-confirm" =>"本当に削除しますか？", class: "btn_gradient_red btn-md"%>
                     <% end %>
                 </div>
             </div>
