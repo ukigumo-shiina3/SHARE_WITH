@@ -1,6 +1,8 @@
 # SHARE WITH
 ![sharewith work_ ](https://user-images.githubusercontent.com/67767613/99877016-7bb53600-2c3e-11eb-8fb9-f80193c46551.png)
 
+# デモ動画
+https://mevie.it/h6c5snc7acpk2uwfybp3qy6j7v6xdrr5olg5y0x6/?pw=
 
 ## サイト概要
 自身の興味があるイベントを企画、もしくは他の方が作成したイベントに参加し、オンラインでの交流を目的とするサイトです。
