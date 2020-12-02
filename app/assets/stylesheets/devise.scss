@@ -5,13 +5,14 @@
 }
 
 .devise-up {
-    background-image: image-url('pc6.jpg');
-    // background-image: url(pc6.jpg);
+    // background-image: image-url('pc6.jpg');
+    background-image: url(pc6.jpg);
     background-size: cover;
     background-position: top;
-    height: 1000px;
+    height: 1350px;
     position: relative;
     top: 15px;
+    padding-top: 100px;
 }
 
 .devise-in {
@@ -24,18 +25,6 @@
     top: 20px;
 }
 
-
-.box-sign-in {
-    width: 380px;
-    height: 450px;
-    margin: 0 auto ;
-    border-radius: 4px;
-    border: 1px #ddd solid;
-    margin-bottom: 230px;
-    position: relative;
-    top: 150px;
-}
-
 .box-sign-up {
     width: 380px;
     height: 1000px;
@@ -45,6 +34,16 @@
     margin-bottom: 230px;
     position: relative;
     top: 50px;
+}
+
+.box-sign-in {
+    width: 380px;
+    height: 450px;
+    margin: 0 auto ;
+    border-radius: 4px;
+    margin-bottom: 230px;
+    position: relative;
+    top: 150px;
 }
 
 .box-inner {
@@ -163,3 +162,8 @@ h1 {
     background: #e7e9ec;
 }
 
+@media screen and (max-width:800px) {
+    .box-sign-in {
+        top:50px;
+    }
+}
