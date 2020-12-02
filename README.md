@@ -28,9 +28,11 @@ Zoom、Remoを用いて主に交流
 
 ## 設計書
 ER図　
+
 https://drive.google.com/file/d/1ALNutLriwic0FZ8T2uGFi899juO-CwRZ/view?usp=sharing
 
 テーブル定義書　
+
 https://docs.google.com/spreadsheets/d/1TB3u2Pd1hpfFWnhIB01-cXJ8ct_WCiQb-Xsxfd7E7Bk/edit?usp=sharing
 
 WBS
