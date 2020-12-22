@@ -54,7 +54,7 @@ https://docs.google.com/spreadsheets/d/1XzVwotOfy9fW7O2e2FiZW3bRAsxIthjeY_sj-DWo
 - Ruby on Rails 5.2.4.4
 
 ### Gem/ライブラリ
-- rSpec(テスト)
+- rspec(テスト)
 - rubocop(静的解析)
 - pry-rails(デバッグ)
 - dotenv-rails(環境変数)
