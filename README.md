@@ -45,12 +45,26 @@ https://docs.google.com/spreadsheets/d/1XzVwotOfy9fW7O2e2FiZW3bRAsxIthjeY_sj-DWo
 ## 環境・使用技術
 ### フロントエンド
 - Bootstrap 3.3.6
+- Flexbox
 - JavaScript
 - jQuery
 
 ### バックエンド
 - Ruby 2.5.7
 - Ruby on Rails 5.2.4.4
+
+### Gem/ライブラリ
+- rSpec(テスト)
+- rubocop(静的解析)
+- pry-rails(デバッグ)
+- dotenv-rails(環境変数)
+- kaminari(ページネーション)
+- devise(ログイン機能)
+- bootstrap-sass(レイアウト)
+- refile(ファイルアップロード)
+- refile-mini_magick(画像リサイズ)
+- font-awesome-rails(アイコン)
+- rails-i18n(日本語化)
 
 ### 開発環境
 - vagrant
