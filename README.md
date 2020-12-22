@@ -27,27 +27,39 @@ SHARE WITHの操作デモ動画になります。ご参考までに見て頂け�
 Zoom、Remoを用いて主に交流
 
 ## 設計書
-ER図　
+### ER図　
 
 https://drive.google.com/file/d/1ALNutLriwic0FZ8T2uGFi899juO-CwRZ/view?usp=sharing
 
-テーブル定義書　
+### テーブル定義書　
 
 https://docs.google.com/spreadsheets/d/1TB3u2Pd1hpfFWnhIB01-cXJ8ct_WCiQb-Xsxfd7E7Bk/edit?usp=sharing
 
-WBS
+### WBS
 
 https://docs.google.com/spreadsheets/d/1OTuUS9ZNVvUiQ8QO00U1qWygrG73XmsaAZJOmxV11ho/edit?usp=sharing
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1XzVwotOfy9fW7O2e2FiZW3bRAsxIthjeY_sj-DWoJfM/edit?usp=sharing
 
-## 開発環境
-- OS：Linux(CentOS)
-- 言語：HTML,CSS,JavaScript,Ruby,SQL
-- フレームワーク：Ruby on Rails
-- JSライブラリ：jQuery
-- 仮想環境：Vagrant,VirtualBox
+## 環境・使用技術
+### フロントエンド
+- Bootstrap 3.3.6
+- JavaScript
+- jQuery
+
+### バックエンド
+- Ruby 2.5.7
+- Ruby on Rails 5.2.4.4
+
+### 開発環境
+- vagrant
+
+### 本番環境
+- AWS(EC2,ElasticIP,Route53,S3,IAM)
+- puma
+- nginx
+- capistrano
 
 ## 使用素材
 - Pixabay :https://pixabay.com/ja/
