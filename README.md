@@ -67,13 +67,15 @@ https://docs.google.com/spreadsheets/d/1XzVwotOfy9fW7O2e2FiZW3bRAsxIthjeY_sj-DWo
 - rails-i18n(日本語化)
 
 ### 開発環境
-- vagrant
+- vagrant 2.2.14
+- SQLite3
 
 ### 本番環境
 - AWS(EC2,ElasticIP,Route53,S3,IAM)
 - puma
 - nginx
 - capistrano
+- MySQL2
 
 ## 使用素材
 - Pixabay :https://pixabay.com/ja/
